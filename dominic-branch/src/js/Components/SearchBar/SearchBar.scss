@@ -4,13 +4,23 @@
 .SearchBar-container{
     display: flex;
     justify-content: center;
+    margin-top: 40px;
 }
 
-#SearchBar{
-    width: 30%;
-    border: 2px solid black;
-    height: 50px;
-    border-radius: 5px;
-    font-size: 36px;
+input#Search-Bar{
+   height: 65px;
+    font-size: 30px;
+    color: #333;
+    opacity: 0.8;
    
+  
+}
+
+div.ui.massive.icon.input{
+    width: 100%;
+}
+
+form#search-form{
+    width: 30%
+
 }

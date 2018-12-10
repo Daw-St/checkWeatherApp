@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router';
 import axios from 'axios';
+import { cityUrl, cordsUrl, formatData } from '../../Helpers/helpers';
 
-const baseURL = "http://api.openweathermap.org/data/2.5/forecast?q=";
-const apiKey = '&APPID=6d99186162ab69f549aae9f7f584c075';
 
 import SearchBar from '../SearchBar/SearchBar';
 import VideoBackground from '../VideoBackground/VideoBackground';
@@ -14,23 +13,49 @@ export default class MainApp extends Component{
         this.state = {
             latitude: 0,
             longitude: 0,
-            weatherData: [],
+            city : 'Warszawa',
+            weatherData: null,
+            
         }
+    }
+    fetchData = () =>{
+        
+        axios.get(cityUrl(this.state.city)).then(res => {
+            const formatedData = formatData(res.data, this.state.city);
+           this.setState({ weatherData: formatedData})
+        });
+           
+        console.log(cityUrl(this.state.weatherData));
     }
     
     componentDidMount(){
-         navigator.geolocation.getCurrentPosition(pos =>
+         navigator.geolocation.getCurrentPosition(pos =>{
             this.setState({latitude: pos.coords.latitude, longitude: pos.coords.longitude})
-         )
+            localStorage.setItem('latitude', pos.coords.latitude),
+            localStorage.setItem('longitude', pos.coords.longitude) 
+         })
+
+         if(localStorage.getItem('longitude')){
+             axios.get(cordsUrl()).then(res => {
+                const formatedData = formatData(res.data);
+               this.setState({ weatherData: formatedData})
+            });
+         }else{
+            axios.get(cityUrl(this.state.city)).then(res => {
+                const formatedData = formatData(res.data, this.state.city);
+               this.setState({ weatherData: formatedData})
+            });
+         }
+       
      
     }  
     
         render(){
+            console.log(this.state.weatherData);
             return(
                 <Fragment>
                 <VideoBackground data='homeVideo'/>
-                    <div>Test </div>
-                    <SearchBar/>
+                    <SearchBar setCity={city => this.setState({ city : city}, this.fetchData)} />
                 </Fragment>
             )
         }
