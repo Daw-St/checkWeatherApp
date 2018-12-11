@@ -1,0 +1,22 @@
+.weather-forecast-list{
+    margin-top: 5%;
+    //  display: flex;
+    //  margin-left: auto;
+    //  margin-right: auto;
+    // background-color: white;
+    // width: 50%;
+    // height: 300px;
+}
+
+.card-wrapper{
+    position: relative;
+    margin: auto;
+    overflow: visible;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+

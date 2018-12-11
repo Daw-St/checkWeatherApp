@@ -76,6 +76,20 @@ module.exports = {
             }
             ]
          },
+         {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: 'babel-loader',
+            },
+            {
+              loader: 'react-svg-loader',
+              options: {
+                jsx: true,
+              },
+            },
+          ],
+        },
           {
             test: /\.(ttf|eot|woff|woff2)$/,
             loader: 'file-loader',
