@@ -92,6 +92,7 @@ export function formatWeatherData(res, city) {
         Set: data.Sun.Set.slice(11, 16)
       },
       Day: {
+        Icon: data.Day.Icon,
         HoursOfPrecipitation: data.Day.HoursOfPrecipitation,
         HoursOfRain: data.Day.HoursOfRain,
         HoursOfSnow: data.Day.HoursOfSnow,
@@ -113,6 +114,7 @@ export function formatWeatherData(res, city) {
         }
       },
       Night: {
+        Icon: data.Night.Icon,
         HoursOfPrecipitation: data.Night.HoursOfPrecipitation,
         HoursOfRain: data.Night.HoursOfRain,
         HoursOfSnow: data.Night.HoursOfSnow,
@@ -138,7 +140,7 @@ export function formatWeatherData(res, city) {
   return weatherData;
 }
 
-export function currentDays(data) {
+export function currentDays(weatherData) {
   const currentDate = new Date();
   
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -164,6 +166,53 @@ export function currentDays(data) {
        return item
       }
   })
+}
+
+export function currentIcon(weatherData){
+  
+    const weatherIcon = [
+{'Sunny': 'wi wi-day-sunny' },
+{'Mostly Sunny': 'wi wi-day-sunny'},
+{'Partly Sunny':'wi wi-day-sunny-overcast'},
+{'Intermittent Clouds': 'wi wi-day-sunny-overcast'},
+{'Hazy Sunshine': 'wi wi-day-haze'},
+{'Mostly Cloudy': 'wi wi-day-cloudy'},
+{'Cloudy': 'wi wi-cloudy'},
+{'Dreary (Overcast)': 'wi wi-cloudy'},
+{'Fog': 'wi wi-fog'},
+{'Showers': 'wi wi-showers'},
+{'Mostly Cloudy w/ Showers': 'wi wi-day-showers'},
+{'Partly Sunny w/ Showers': 'wi wi-day-showers'},
+{'T-Storms': 'wi wi-thunderstorm'},
+{'Mostly Cloudy w/ T-Storms':'wi wi-day-thunderstorm'},
+{'Partly Sunny w/ T-Storms': 'wi wi-day-thunderstorm'},
+{'Rain': 'wi wi-rain'},
+{'Flurries': 'wi wi-snow'},
+{'Mostly Cloudy w/ Flurries': 'wi wi-day-snow'},
+{'Partly Sunny w/ Flurries': 'wi wi-day-snow'},
+{'Snow': 'wi wi-snow'},
+{'Mostly Cloudy w/ Snow': 'wi wi-day-snow'},
+{'Ice': 'wi wi-snowflake-cold'},
+{'Sleet': 'wi wi-sleet'},
+{'Freezing Rain': 'wi wi-rain'},
+{'Rain and Snow': 'wi wi-rain-mix'},
+{'Hot': 'wi wi-thermometer'},
+{'Cold': 'wi wi-thermometer-exterior'},
+{'Windy': 'wi wi-strong-wind'},
+{'Clear': 'wi wi-night-clear'},
+{'Mostly Clear': 'wi wi-night-clear'},
+{'Partly Cloudy': 'wi-night-alt-partly-cloudy'},
+{'Intermittent Clouds': 'wi-night-alt-partly-cloudy'},
+{'Hazy Moonlight': 'wi wi-night-fog'},
+{'Mostly Cloudy':'wi wi-night-alt-cloudy'},
+{'Partly Cloudy w/ Showers': 'wi wi-night-alt-showers'},
+{'Mostly Cloudy w/ Showers': 'wi wi-night-alt-showers'},
+{'Partly Cloudy w/ T-Storms': 'wi wi-night-alt-thunderstorm'},
+{'Mostly Cloudy w/ T-Storms': 'wi wi-night-alt-thunderstorm'},
+{'Mostly Cloudy w/ Flurries':'wi wi-night-alt-snow'},
+{'Mostly Cloudy w/ Snow':'wi wi-night-alt-snow'},
+    ]
+
 }
 
 export function cordsUrl() {
