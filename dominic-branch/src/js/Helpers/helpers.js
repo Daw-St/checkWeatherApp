@@ -137,12 +137,13 @@ export function formatWeatherData(res, city) {
       }
     });
   });
-  return weatherData;
+
+  return currentDays(weatherData);
 }
 
 export function currentDays(weatherData) {
   const currentDate = new Date();
-  
+
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   // getDay will return us current day, inside days.slice for example if current day is Wednesday it will return us [wed, thu, fir, sat]
@@ -156,64 +157,139 @@ export function currentDays(weatherData) {
     }
   }
 
-  return data.map( (item, index) =>{
-      if(index === 0){
-      item.WeekDay = 'Today'
-      return item
-      }
-      else{
-       item.WeekDay = fromCurrentDay[index];
-       return item
-      }
-  })
+  return weatherData.map((item, index) => {
+    if (index === 0) {
+      item.WeekDay = "Today";
+      return item;
+    } else {
+      item.WeekDay = fromCurrentDay[index];
+      return item;
+    }
+  });
 }
 
-export function currentIcon(weatherData){
-  
-    const weatherIcon = [
-{'Sunny': 'wi wi-day-sunny' },
-{'Mostly Sunny': 'wi wi-day-sunny'},
-{'Partly Sunny':'wi wi-day-sunny-overcast'},
-{'Intermittent Clouds': 'wi wi-day-sunny-overcast'},
-{'Hazy Sunshine': 'wi wi-day-haze'},
-{'Mostly Cloudy': 'wi wi-day-cloudy'},
-{'Cloudy': 'wi wi-cloudy'},
-{'Dreary (Overcast)': 'wi wi-cloudy'},
-{'Fog': 'wi wi-fog'},
-{'Showers': 'wi wi-showers'},
-{'Mostly Cloudy w/ Showers': 'wi wi-day-showers'},
-{'Partly Sunny w/ Showers': 'wi wi-day-showers'},
-{'T-Storms': 'wi wi-thunderstorm'},
-{'Mostly Cloudy w/ T-Storms':'wi wi-day-thunderstorm'},
-{'Partly Sunny w/ T-Storms': 'wi wi-day-thunderstorm'},
-{'Rain': 'wi wi-rain'},
-{'Flurries': 'wi wi-snow'},
-{'Mostly Cloudy w/ Flurries': 'wi wi-day-snow'},
-{'Partly Sunny w/ Flurries': 'wi wi-day-snow'},
-{'Snow': 'wi wi-snow'},
-{'Mostly Cloudy w/ Snow': 'wi wi-day-snow'},
-{'Ice': 'wi wi-snowflake-cold'},
-{'Sleet': 'wi wi-sleet'},
-{'Freezing Rain': 'wi wi-rain'},
-{'Rain and Snow': 'wi wi-rain-mix'},
-{'Hot': 'wi wi-thermometer'},
-{'Cold': 'wi wi-thermometer-exterior'},
-{'Windy': 'wi wi-strong-wind'},
-{'Clear': 'wi wi-night-clear'},
-{'Mostly Clear': 'wi wi-night-clear'},
-{'Partly Cloudy': 'wi-night-alt-partly-cloudy'},
-{'Intermittent Clouds': 'wi-night-alt-partly-cloudy'},
-{'Hazy Moonlight': 'wi wi-night-fog'},
-{'Mostly Cloudy':'wi wi-night-alt-cloudy'},
-{'Partly Cloudy w/ Showers': 'wi wi-night-alt-showers'},
-{'Mostly Cloudy w/ Showers': 'wi wi-night-alt-showers'},
-{'Partly Cloudy w/ T-Storms': 'wi wi-night-alt-thunderstorm'},
-{'Mostly Cloudy w/ T-Storms': 'wi wi-night-alt-thunderstorm'},
-{'Mostly Cloudy w/ Flurries':'wi wi-night-alt-snow'},
-{'Mostly Cloudy w/ Snow':'wi wi-night-alt-snow'},
-    ]
 
+
+
+
+
+// export const weatherIcon = [
+//   { 1: "wi wi-day-sunny" },
+//   { 2: "wi wi-day-sunny" },
+//   { 3: "wi wi-day-sunny-overcast" },
+//   { 4: "wi wi-day-sunny-overcast" },
+//   { 5: "wi wi-day-haze" },
+//   { 6: "wi wi-day-cloudy" },
+//   { 7: "wi wi-cloudy" },
+//   { 8: "wi wi-cloudy" },
+//   { 11: "wi wi-fog" },
+//   { 12: "wi wi-showers" },
+//   { 13: "wi wi-day-showers" },
+//   { 14: "wi wi-day-showers" },
+//   { 15: "wi wi-thunderstorm" },
+//   { 16: "wi wi-day-thunderstorm" },
+//   { 17: "wi wi-day-thunderstorm" },
+//   { 18: "wi wi-rain" },
+//   { 19: "wi wi-snow" },
+//   { 20: "wi wi-day-snow" },
+//   { 21: "wi wi-day-snow" },
+//   { 22: "wi wi-snow" },
+//   { 23: "wi wi-day-snow" },
+//   { 24: "wi wi-snowflake-cold" },
+//   { 25: "wi wi-sleet" },
+//   { 26: "wi wi-rain" },
+//   { 29: "wi wi-rain-mix" },
+//   { 30: "wi wi-thermometer" },
+//   { 31: "wi wi-thermometer-exterior" },
+//   { 32: "wi wi-strong-wind" },
+//   { 33: "wi wi-night-clear" },
+//   { 34: "wi wi-night-clear" },
+//   { 35: "wi wi-night-alt-partly-cloudy" },
+//   { 36: "wi wi-night-alt-partly-cloudy" },
+//   { 37: "wi wi-night-fog" },
+//   { 38: "wi wi-night-alt-cloudy" },
+//   { 39: "wi wi-night-alt-showers" },
+//   { 40: "wi wi-night-alt-showers" },
+//   { 41: "wi wi-night-alt-thunderstorm" },
+//   { 42: "wi wi-night-alt-thunderstorm" },
+//   { 43: "wi wi-night-alt-snow" },
+//   { 44: "wi wi-night-alt-snow" }
+// ];
+
+
+export function currentIcon(weatherData) {
+  console.log('etry');
+
+  const weatherIcon = [
+     { 1: "wi wi-day-sunny" },
+    { 2: "wi wi-day-sunny" },
+    { 3: "wi wi-day-sunny-overcast" },
+    { 4: "wi wi-day-sunny-overcast" },
+    { 5: "wi wi-day-haze" },
+    { 6: "wi wi-day-cloudy" },
+    { 7: "wi wi-cloudy" },
+    { 8: "wi wi-cloudy" },
+    null,
+    null,
+    { 11: "wi wi-fog" },
+    { 12: "wi wi-showers" },
+    { 13: "wi wi-day-showers" },
+    { 14: "wi wi-day-showers" },
+    { 15: "wi wi-thunderstorm" },
+    { 16: "wi wi-day-thunderstorm" },
+    { 17: "wi wi-day-thunderstorm" },
+    { 18: "wi wi-rain" },
+    { 19: "wi wi-snow" },
+    { 20: "wi wi-day-snow" },
+    { 21: "wi wi-day-snow" },
+    { 22: "wi wi-snow" },
+    { 23: "wi wi-day-snow" },
+    { 24: "wi wi-snowflake-cold" },
+    { 25: "wi wi-sleet" },
+    { 26: "wi wi-rain" },
+    null,
+    null,
+    { 29: "wi wi-rain-mix" },
+    { 30: "wi wi-thermometer" },
+    { 31: "wi wi-thermometer-exterior" },
+    { 32: "wi wi-strong-wind" },
+    { 33: "wi wi-night-clear" },
+    { 34: "wi wi-night-clear" },
+    { 35: "wi wi-night-alt-partly-cloudy" },
+    { 36: "wi wi-night-alt-partly-cloudy" },
+    { 37: "wi wi-night-fog" },
+    { 38: "wi wi-night-alt-cloudy" },
+    { 39: "wi wi-night-alt-showers" },
+    { 40: "wi wi-night-alt-showers" },
+    { 41: "wi wi-night-alt-thunderstorm" },
+    { 42: "wi wi-night-alt-thunderstorm" },
+    { 43: "wi wi-night-alt-snow" },
+    { 44: "wi wi-night-alt-snow" }
+  ];
+
+  const date = new Date();
+  const time = `${date.getHours()}:${date.getMinutes()}`
+ 
+  return weatherData.map( (item,index) => {
+    let sunSet = item.Sun.Set;
+    let sunRise = item.Sun.Rise;
+
+    if (time < sunSet && time > sunRise || index !== 0  ) {
+      //console.log('day',item.Day.Icon);
+      item.IconToShow = weatherIcon[item.Day.Icon -1][item.Day.Icon]; 
+      //console.log(weatherIcon[item.Day.Icon -1][item.Day.Icon]);
+      return item;
+    } else {
+      item.IconToShow = weatherIcon[item.Night.Icon -1][item.Night.Icon];
+      //console.log(weatherIcon[item.Night.Icon -1]);
+     // console.log( weatherIcon[item.Night.Icon -1][item.Night.Icon]);
+     //console.log('night',item.Night.Icon);
+     
+      return item;
+    }
+  });
 }
+
 
 export function cordsUrl() {
   return `http://api.openweathermap.org/data/2.5/forecast?lat=${localStorage.getItem(

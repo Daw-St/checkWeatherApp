@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ListElement from "../ListElement/ListElement";
-import { currentDays } from "../../Helpers/helpers";
+import { currentDays, currentIcon } from "../../Helpers/helpers";
 
 export default class WeatherList extends Component {
   constructor(props) {
@@ -21,7 +21,8 @@ export default class WeatherList extends Component {
   // }
 
   renderList = () => {
-    const tmpObj = currentDays(obj);
+    const tmpObj = currentIcon(currentDays(obj));
+
     console.log(tmpObj);
     if (tmpObj)
       return tmpObj.map((day, index) => {
@@ -43,6 +44,7 @@ const obj = [
     City: "Wrocław",
     Date: "2018-12-11",
     Day: {
+      Icon: 29,
       Clouds: "92%",
       HoursOfPrecipitation: 7.5,
       HoursOfRain: 3.5,
@@ -69,14 +71,14 @@ const obj = [
       Set: "19:37"
     },
     Night: {
+      Icon: 19,
       Clouds: "95%",
       HoursOfPrecipitation: 7,
       HoursOfRain: 0,
       HoursOfSnow: 7,
       Ice: "0",
       IconPhrase: "Snow",
-      LongPhrase:
-        "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
+      LongPhrase: "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
       PrecipitationProbability: 72,
       Rain: "0 mm",
       ShortPhrase: "Snow at times, 3-6 cm",
@@ -102,6 +104,7 @@ const obj = [
     City: "Wrocław",
     Date: "2018-12-12",
     Day: {
+      Icon: 19,
       Clouds: "92%",
       HoursOfPrecipitation: 7.5,
       HoursOfRain: 3.5,
@@ -128,14 +131,14 @@ const obj = [
       Set: "19:37"
     },
     Night: {
+      Icon: 8,
       Clouds: "95%",
       HoursOfPrecipitation: 7,
       HoursOfRain: 0,
       HoursOfSnow: 7,
       Ice: "0",
       IconPhrase: "Snow",
-      LongPhrase:
-        "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
+      LongPhrase: "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
       PrecipitationProbability: 72,
       Rain: "0 mm",
       ShortPhrase: "Snow at times, 3-6 cm",
@@ -161,6 +164,7 @@ const obj = [
     City: "Wrocław",
     Date: "2018-12-13",
     Day: {
+      Icon: 7,
       Clouds: "92%",
       HoursOfPrecipitation: 7.5,
       HoursOfRain: 3.5,
@@ -187,14 +191,14 @@ const obj = [
       Set: "19:37"
     },
     Night: {
+      Icon: 8,
       Clouds: "95%",
       HoursOfPrecipitation: 7,
       HoursOfRain: 0,
       HoursOfSnow: 7,
       Ice: "0",
       IconPhrase: "Snow",
-      LongPhrase:
-        "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
+      LongPhrase: "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
       PrecipitationProbability: 72,
       Rain: "0 mm",
       ShortPhrase: "Snow at times, 3-6 cm",
@@ -220,6 +224,7 @@ const obj = [
     City: "Wrocław",
     Date: "2018-12-14",
     Day: {
+      Icon: 7,
       Clouds: "92%",
       HoursOfPrecipitation: 7.5,
       HoursOfRain: 3.5,
@@ -246,14 +251,14 @@ const obj = [
       Set: "19:37"
     },
     Night: {
+      Icon: 8,
       Clouds: "95%",
       HoursOfPrecipitation: 7,
       HoursOfRain: 0,
       HoursOfSnow: 7,
       Ice: "0",
       IconPhrase: "Snow",
-      LongPhrase:
-        "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
+      LongPhrase: "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
       PrecipitationProbability: 72,
       Rain: "0 mm",
       ShortPhrase: "Snow at times, 3-6 cm",
@@ -279,6 +284,7 @@ const obj = [
     City: "Wrocław",
     Date: "2018-12-15",
     Day: {
+      Icon: 6,
       Clouds: "92%",
       HoursOfPrecipitation: 7.5,
       HoursOfRain: 3.5,
@@ -305,6 +311,7 @@ const obj = [
       Set: "19:37"
     },
     Night: {
+      Icon: 7,
       Clouds: "95%",
       HoursOfPrecipitation: 7,
       HoursOfRain: 0,

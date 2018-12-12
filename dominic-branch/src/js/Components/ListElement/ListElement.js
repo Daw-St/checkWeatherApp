@@ -11,7 +11,7 @@ export default function ListElement(props) {
           <span className="small-temp">/{props.day.TempMin}</span>
       </p>
       <div className="card-icon">
-        <i className="wi wi-day-cloudy" />
+        <i className={props.day.IconToShow} />
       </div>
 
       <p className="card-info">{props.day.Day.ShortPhrase}</p>
