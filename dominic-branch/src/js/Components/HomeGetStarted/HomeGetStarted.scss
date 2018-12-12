@@ -1,6 +1,27 @@
-.home-header{
-    font-size: 48px
+
+
+
+.main-title{
+  font-size: 60px;
+  text-transform: uppercase;
+  margin:0;
+  font-weight: 400;
+  font-family: 'Lato';
 }
+
+.thin-header{
+  font-weight: 200;
+}
+
+.desc-header{
+  font-size: 37px;
+    //color: #e0dfdc;
+    font-family: Lato;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin-bottom: 30px;
+}
+
 
 .get-started-container{
     color: rgb(255, 255, 255);
@@ -9,12 +30,13 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    font-family: 'Lato';
 }
 
   
   a.btn-get-started {
     color:white;
-    margin-bottom: 150px;
+    margin-bottom: 170px;
     text-decoration:none;
     -webkit-transition:0.3s all ease;
     transition:0.3s ease all;

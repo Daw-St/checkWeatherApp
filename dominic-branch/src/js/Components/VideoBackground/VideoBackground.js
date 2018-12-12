@@ -9,7 +9,7 @@ export default class VideoBackground extends Component {
   }
   changeVideo = (data) => {
     if(data === 'homeVideo')
-    return 'BubbleTurningIntoIce.mp4'
+    return 'World.mp4'
   }
 
   

@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 export default () => {
   return (
     <div className="get-started-container">
-      <h1 className="home-header">How is the weather at your place today?</h1>
+    <h1 className="main-title"><span className="thin-header">Global</span> Weather</h1>
+      <h1 className="desc-header">Check the weather at your place!</h1>
       <Link to="/weatherApp" className="btn-get-started">
         Get Started!
       </Link>
