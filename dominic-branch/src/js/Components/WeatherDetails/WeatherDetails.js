@@ -27,16 +27,63 @@ export default class WeatherDetails extends Component {
     }
     return (
       <div className="weather-forecast-details">
-        <div className="details-module" />
+        <div className="details-module">
+          <div className="toggle-time">
+            <div class="toggleWrapper">
+              <input type="checkbox" class="dn" id="dn" />
+              <label for="dn" class="toggle">
+                <span class="toggle__handler">
+                  <span class="crater crater--1" />
+                  <span class="crater crater--2" />
+                  <span class="crater crater--3" />
+                </span>
+                <span class="star star--1" />
+                <span class="star star--2" />
+                <span class="star star--3" />
+                <span class="star star--4" />
+                <span class="star star--5" />
+                <span class="star star--6" />
+              </label>
+            </div>
+          </div>
+          <div className="day-details-wrapper">
+            <div className="day-details">8</div>
+            <div className="day-details-icon">8</div>
+          </div>
+        </div>
         <div className="wind-module" />
         <div className="rise-modules">
           <div className="sun-module">
-            <div className="sun-details" />
-            <i className="sun-icon" />
+            <div className="sun-details">
+              <div className="feature-title">
+                <h3>Sunrise/Sunset</h3>
+              </div>
+              <ul className="time-period">
+                <li>
+                  Sunrise: <span>{this.props.card.Sun.Rise}</span>
+                </li>
+                <li>
+                  Sunset: <span>{this.props.card.Sun.Set}</span>
+                </li>
+              </ul>
+            </div>
+            <i className="rise-icon wi wi-day-sunny" />
           </div>
           <div className="moon-module">
-            <div className="moon-details" />
-            <i className="moon-icon" />
+            <div className="moon-details">
+              <div className="feature-title">
+                <h3>Moonrise/Moonset</h3>
+              </div>
+              <ul className="time-period">
+                <li>
+                  Moonrise: <span>{this.props.card.Moon.Rise}</span>
+                </li>
+                <li>
+                  Moonset: <span>{this.props.card.Moon.Set}</span>
+                </li>
+              </ul>
+            </div>
+            <i className="rise-icon wi wi-night-clear" />
           </div>
         </div>
       </div>
