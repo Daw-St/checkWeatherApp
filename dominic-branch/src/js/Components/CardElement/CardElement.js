@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-
-export default function ListElement(props) {
+//hjghjg
+export default function CardElement(props) {
   return (
-    <div className={`card anim-flip anim-flip-card-${props.cardNum}`}>
+    <div className={`card anim-flip anim-flip-card-${props.cardNum}`} id={`card-${props.cardNum}`} data-id={`${props.cardNum}`}  >
       <header>
         <h1 className="card-header">{props.day.WeekDay}</h1>
       </header>

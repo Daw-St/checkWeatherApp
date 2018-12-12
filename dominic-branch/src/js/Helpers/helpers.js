@@ -274,6 +274,8 @@ export function currentIcon(weatherData) {
     let sunSet = item.Sun.Set;
     let sunRise = item.Sun.Rise;
 
+    item.DayIcon = item.IconToShow = weatherIcon[item.Day.Icon -1][item.Day.Icon]; 
+    item.NightIcon = weatherIcon[item.Night.Icon -1][item.Night.Icon];
     if (time < sunSet && time > sunRise || index !== 0  ) {
       //console.log('day',item.Day.Icon);
       item.IconToShow = weatherIcon[item.Day.Icon -1][item.Day.Icon]; 

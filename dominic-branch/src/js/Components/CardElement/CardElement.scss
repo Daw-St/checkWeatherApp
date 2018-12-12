@@ -2,7 +2,7 @@
     margin-right: 9px;
     width: 200px;
     padding: 16px;
-    margin-bottom: 60px;
+    //margin-bottom: 60px;
     text-align: center;
     box-sizing: border-box;
     transition: all 500ms ease-out;
@@ -16,9 +16,9 @@
     box-shadow: 0 0 20px 10px rgb(5,15,25);
     z-index: 2;
 }
-.card:hover:not(span){
-    color: #FFAC33;
-}
+ .card:hover:not(span){
+     color: #FFAC33;
+ }
 .card-header{
     padding-bottom: 8px;
     border-bottom: 1px solid rgb(200,200,200);
@@ -31,6 +31,12 @@
     color: white;
 }
 
+
+.focus-card{
+    color: #FFAC33;
+    box-shadow: 0 0 20px 10px rgb(5,15,25);
+    z-index: 2;
+}
 
 
 .box-highlight{

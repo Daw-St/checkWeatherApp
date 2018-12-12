@@ -2,16 +2,9 @@ import React, { Component } from "react";
 import CardElement from "../CardElement/CardElement";
 import { currentDays, currentIcon } from "../../Helpers/helpers";
 
-
-//let chosen = ''
-export default class WeatherList extends Component {
+export default class WeatherDetails extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      chosenCard : 0,
-    }
-    this.events = [];
   }
 
   // renderList =()=>{
@@ -27,45 +20,25 @@ export default class WeatherList extends Component {
   //     })
   // }
 
-  renderList = () => {
-    const tmpObj = currentIcon(currentDays(obj));
-
-    console.log(tmpObj);
-    if (tmpObj)
-      return tmpObj.map((day, index) => {
-        return <CardElement cardNum={index} key={index} day={day} />;
-      });
-
-       
-
-  };
-  componentDidMount(){
-    for (let i = 0; i < 5; i++) {
-      this.events[i] = document.getElementById(`card-${i}`).addEventListener('click', this.onClick)
-    }
-    const card = document.getElementById(`card-${this.state.chosenCard}`).classList.add('focus-card');
-    
-  }
-  
-
-  onClick = e =>{
-    //console.log(e.currentTarget.dataset.id);
-    const id = e.currentTarget.dataset.id;
-    //console.log(e.currentTarget);
-    const lastCard = document.getElementById(`card-${this.state.chosenCard}`);
-    //console.log(lastCard);
-    lastCard.classList.remove('focus-card')
-    e.currentTarget.classList.add("focus-card");
-
-    this.props.cardId(id);
-    this.setState({chosenCard: id})
-
-  }
-
   render() {
+    console.log(this.props);
+    if (this.props.card) {
+      console.log("cardddd", this.props.card);
+    }
     return (
-      <div className="weather-forecast-list">
-        <div className="card-wrapper">{this.renderList()}</div>
+      <div className="weather-forecast-details">
+        <div className="details-module" />
+        <div className="wind-module" />
+        <div className="rise-modules">
+          <div className="sun-module">
+            <div className="sun-details" />
+            <i className="sun-icon" />
+          </div>
+          <div className="moon-module">
+            <div className="moon-details" />
+            <i className="moon-icon" />
+          </div>
+        </div>
       </div>
     );
   }
@@ -110,7 +83,8 @@ const obj = [
       HoursOfSnow: 7,
       Ice: "0",
       IconPhrase: "Snow",
-      LongPhrase: "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
+      LongPhrase:
+        "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
       PrecipitationProbability: 72,
       Rain: "0 mm",
       ShortPhrase: "Snow at times, 3-6 cm",
@@ -170,7 +144,8 @@ const obj = [
       HoursOfSnow: 7,
       Ice: "0",
       IconPhrase: "Snow",
-      LongPhrase: "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
+      LongPhrase:
+        "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
       PrecipitationProbability: 72,
       Rain: "0 mm",
       ShortPhrase: "Snow at times, 3-6 cm",
@@ -230,7 +205,8 @@ const obj = [
       HoursOfSnow: 7,
       Ice: "0",
       IconPhrase: "Snow",
-      LongPhrase: "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
+      LongPhrase:
+        "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
       PrecipitationProbability: 72,
       Rain: "0 mm",
       ShortPhrase: "Snow at times, 3-6 cm",
@@ -290,7 +266,8 @@ const obj = [
       HoursOfSnow: 7,
       Ice: "0",
       IconPhrase: "Snow",
-      LongPhrase: "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
+      LongPhrase:
+        "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
       PrecipitationProbability: 72,
       Rain: "0 mm",
       ShortPhrase: "Snow at times, 3-6 cm",
