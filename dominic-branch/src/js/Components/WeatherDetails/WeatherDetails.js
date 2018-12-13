@@ -30,20 +30,20 @@ export default class WeatherDetails extends Component {
         <div className="details-module">
 
           <div className="toggle-time">
-            <div class="toggleWrapper">
-              <input type="checkbox" class="dn" id="dn" />
-              <label for="dn" class="toggle">
-                <span class="toggle__handler">
-                  <span class="crater crater--1" />
-                  <span class="crater crater--2" />
-                  <span class="crater crater--3" />
+            <div className="toggleWrapper">
+              <input type="checkbox" className="dn" id="dn" />
+              <label htmlFor="dn" className="toggle">
+                <span className="toggle__handler">
+                  <span className="crater crater--1" />
+                  <span className="crater crater--2" />
+                  <span className="crater crater--3" />
                 </span>
-                <span class="star star--1" />
-                <span class="star star--2" />
-                <span class="star star--3" />
-                <span class="star star--4" />
-                <span class="star star--5" />
-                <span class="star star--6" />
+                <span className="star star--1" />
+                <span className="star star--2" />
+                <span className="star star--3" />
+                <span className="star star--4" />
+                <span className="star star--5" />
+                <span className="star star--6" />
               </label>
             </div>
           </div>
@@ -67,13 +67,34 @@ export default class WeatherDetails extends Component {
             </div>
           </div>
           <div className="day-details-cond">
-            {this.props.card.Day.LongPhrase}
+            <div>{this.props.card.Day.LongPhrase}</div>
+            <div className="air-stats">Air Quality: {this.props.card.AirQuality.Category} ({this.props.card.AirQuality.Type})</div>
           </div>
           </div>
 
         </div>
 
         <div className="wind-module" >
+        <div className="wind-details-container">
+          <ul className="wind-stats">
+            <li>Winds from the</li>
+            <li>{this.props.card.Day.Wind.Direction} {this.props.card.Day.Wind.Speed}</li>
+            <li>Guts: {this.props.card.Day.Wind.WindGust}</li>
+          </ul>
+          <div className="wind-icon">
+            <i className={`wi wi-wind wi-from-${this.props.card.Day.Wind.Direction}`}></i>
+          </div>
+        </div>
+        <ul className="weather-stats">
+          <li>Clouds: {this.props.card.Day.Clouds}</li>
+          <li>Precipitation: {this.props.card.Day.TotalLiquid}</li>
+          <li>Rain: {this.props.card.Day.Rain}</li>
+          <li>Snow: {this.props.card.Day.Snow}</li>
+          <li>Thunderstorms: {this.props.card.Day.ThunderstormProbability}%</li>
+          <li>Hours of Precipitation: {this.props.card.Day.HoursOfPrecipitation} hrs</li>
+          <li>Hours of Rain: {this.props.card.Day.HoursOfRain} hrs</li>
+          <li></li>
+        </ul>
         </div>
 
         <div className="rise-modules">
