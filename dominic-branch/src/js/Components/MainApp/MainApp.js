@@ -117,7 +117,8 @@ const obj = [
   
       Moon: {
         Rise: "10:48",
-        Set: "19:37"
+        Set: "19:37",
+        Duration: "9.55"
       },
       Night: {
         Icon: 19,
@@ -143,7 +144,8 @@ const obj = [
       },
       Sun: {
         Rise: "07:45",
-        Set: "15:45"
+        Set: "15:45",
+        Duration: "7.58"
       },
       TempMax: "3°",
       TempMin: "-1°"
@@ -185,7 +187,8 @@ const obj = [
   
       Moon: {
         Rise: "10:48",
-        Set: "19:37"
+        Set: "19:37",
+        Duration: "9.55"
       },
       Night: {
         Icon: 8,
@@ -211,7 +214,8 @@ const obj = [
       },
       Sun: {
         Rise: "07:45",
-        Set: "15:45"
+        Set: "15:45",
+        Duration: "7.58"
       },
       TempMax: "3°",
       TempMin: "-1°"
@@ -253,7 +257,8 @@ const obj = [
   
       Moon: {
         Rise: "10:48",
-        Set: "19:37"
+        Set: "19:37",
+        Duration: "9.55"
       },
       Night: {
         Icon: 8,
@@ -279,7 +284,8 @@ const obj = [
       },
       Sun: {
         Rise: "07:45",
-        Set: "15:45"
+        Set: "15:45",
+        Duration: "7.58"
       },
       TempMax: "3°",
       TempMin: "-1°"
@@ -321,7 +327,8 @@ const obj = [
   
       Moon: {
         Rise: "10:48",
-        Set: "19:37"
+        Set: "19:37",
+        Duration: "9.55"
       },
       Night: {
         Icon: 8,
@@ -347,7 +354,8 @@ const obj = [
       },
       Sun: {
         Rise: "07:45",
-        Set: "15:45"
+        Set: "15:45",
+        Duration: "7.58"
       },
       TempMax: "3°",
       TempMin: "-1°"
@@ -389,10 +397,10 @@ const obj = [
   
       Moon: {
         Rise: "10:48",
-        Set: "19:37"
+        Set: "19:37",
+        Duration: "9.55"
       },
-      Night: {
-        
+      Night: {       
         Icon: 7,
         Clouds: "95%",
         HoursOfPrecipitation: 7,
@@ -417,7 +425,8 @@ const obj = [
       },
       Sun: {
         Rise: "07:45",
-        Set: "15:45"
+        Set: "15:45",
+        Duration: "7.58"
       },
       TempMax: "3°",
       TempMin: "-1°"

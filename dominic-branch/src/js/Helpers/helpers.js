@@ -76,27 +76,30 @@ export function formatWeatherData(res, city) {
   console.log("list", res);
 
   res.map((data, index) => {
-
+    console.log(data);
     return weatherData.push({
       City: city,
       AirQuality: {
         Category: data.AirAndPollen[0].Category,
-        Type: data.AirAndPollen[0].Type,
+        Type: data.AirAndPollen[0].Type
       },
       Date: data.Date.slice(0, 10),
       TempMax: `${Math.round(data.Temperature.Maximum.Value)}°C`,
       TempMin: `${Math.round(data.Temperature.Minimum.Value)}°C`,
-      RealFeelTemperature:{
+      RealFeelTemperature: {
         Max: `${Math.round(data.RealFeelTemperature.Maximum.Value)}°C`,
-        Min:`${Math.round(data.RealFeelTemperature.Minimum.Value)}°C`
+        Min: `${Math.round(data.RealFeelTemperature.Minimum.Value)}°C`
       },
       Moon: {
         Rise: data.Moon.Rise.slice(11, 16),
-        Set: data.Moon.Set.slice(11, 16)
+        Set: data.Moon.Set.slice(11, 16),
+        Duration: hoursCounter(data.Moon.Rise.slice(11, 16), data.Moon.Set.slice(11, 16)),
+
       },
       Sun: {
         Rise: data.Sun.Rise.slice(11, 16),
-        Set: data.Sun.Set.slice(11, 16)
+        Set: data.Sun.Set.slice(11, 16),
+        Duration: hoursCounter(data.Sun.Rise.slice(11, 16), data.Sun.Set.slice(11, 16)),
       },
       Day: {
         Icon: data.Day.Icon,
@@ -144,7 +147,7 @@ export function formatWeatherData(res, city) {
       }
     });
   });
-  console.log('mod',currentIcon(currentDays(weatherData)));
+  console.log("mod", currentIcon(currentDays(weatherData)));
   return currentIcon(currentDays(weatherData));
 }
 
@@ -174,11 +177,6 @@ export function currentDays(weatherData) {
     }
   });
 }
-
-
-
-
-
 
 // export const weatherIcon = [
 //   { 1: "wi wi-day-sunny" },
@@ -223,12 +221,11 @@ export function currentDays(weatherData) {
 //   { 44: "wi wi-night-alt-snow" }
 // ];
 
-
 export function currentIcon(weatherData) {
   //console.log('etry');
 
   const weatherIcon = [
-     { 1: "wi wi-day-sunny" },
+    { 1: "wi wi-day-sunny" },
     { 2: "wi wi-day-sunny" },
     { 3: "wi wi-day-sunny-overcast" },
     { 4: "wi wi-day-sunny-overcast" },
@@ -275,32 +272,32 @@ export function currentIcon(weatherData) {
   ];
 
   const date = new Date();
-  const time = `${date.getHours()}:${date.getMinutes()}`
-  const timeToSet = `${date.getHours()-1}:${date.getMinutes()}`
- 
-  return weatherData.map( (item,index) => {
+  const time = `${date.getHours()}:${date.getMinutes()}`;
+  const timeToSet = `${date.getHours() - 1}:${date.getMinutes()}`;
+
+  return weatherData.map((item, index) => {
     let sunSet = item.Sun.Set;
     let sunRise = item.Sun.Rise;
 
-    item.DayIcon = item.IconToShow = weatherIcon[item.Day.Icon -1][item.Day.Icon]; 
-    item.NightIcon = weatherIcon[item.Night.Icon -1][item.Night.Icon];
+    item.DayIcon = item.IconToShow =
+      weatherIcon[item.Day.Icon - 1][item.Day.Icon];
+    item.NightIcon = weatherIcon[item.Night.Icon - 1][item.Night.Icon];
 
-    if (timeToSet <= sunSet && time >= sunRise || index !== 0  ) {
+    if ((timeToSet <= sunSet && time >= sunRise) || index !== 0) {
       //console.log('day',item.Day.Icon);
-      item.IconToShow = weatherIcon[item.Day.Icon -1][item.Day.Icon]; 
+      item.IconToShow = weatherIcon[item.Day.Icon - 1][item.Day.Icon];
       //console.log(weatherIcon[item.Day.Icon -1][item.Day.Icon]);
       return item;
     } else {
-      item.IconToShow = weatherIcon[item.Night.Icon -1][item.Night.Icon];
+      item.IconToShow = weatherIcon[item.Night.Icon - 1][item.Night.Icon];
       //console.log(weatherIcon[item.Night.Icon -1]);
-     // console.log( weatherIcon[item.Night.Icon -1][item.Night.Icon]);
-     //console.log('night',item.Night.Icon);
-     
+      // console.log( weatherIcon[item.Night.Icon -1][item.Night.Icon]);
+      //console.log('night',item.Night.Icon);
+
       return item;
     }
   });
 }
-
 
 export function cordsUrl() {
   return `http://api.openweathermap.org/data/2.5/forecast?lat=${localStorage.getItem(
@@ -312,37 +309,24 @@ export function cityUrl(city) {
   return `http://api.openweathermap.org/data/2.5/forecast?q=${city}&mode=json&units=metric&APPID=6d99186162ab69f549aae9f7f584c075`;
 }
 
+export function hoursCounter(time1, time2) {
+  const timeSplit = time1.split(":");
+  const timeSplit2 = time2.split(":");
 
-export function hoursCounter(time1, time2){
+  const date1 = new Date();
+  const date2 = new Date();
 
-  const timeSplit = time1.split(':')
-  const timeSplit2 = time2.split(':')
+  date1.setHours(timeSplit[0], timeSplit[1]);
+  date2.setHours(timeSplit2[0], timeSplit2[1]);
 
-const date1 = new Date();
-const date2 = new Date();
+  const hours = (Math.abs(date1 - date2) / 36e5).toFixed(2);
 
+  const computedHours = `${hours.toString().split(".")[0]}.${(
+    hours.toString().split(".")[1] * 0.6
+  ).toFixed(0)}`;
 
-date1.setHours(timeSplit[0],timeSplit[1])
-date2.setHours(timeSplit2[0],timeSplit2[1])
-
-
-const hours = (Math.abs(date1 - date2) / 36e5).toFixed(2);
-
-// console.log(hours);
-// if(hours.toString().split('.')[1].split('')[0] === '0')
-// return hours
-
-
-//const computedHours = `${hours.toString().split('.')[0]}.${Math.round(hours.toString().split('.')[1] * 0.6)}`
-const computedHours = `${hours.toString().split('.')[0]}.${(hours.toString().split('.')[1] * 0.6).toFixed(0)}`
-
-if(computedHours.split('.')[1].length === 1)
-  return`${computedHours.split('.')[0]}.0${computedHours.split('.')[1]}`
-
+  if (computedHours.split(".")[1].length === 1)
+    return `${computedHours.split(".")[0]}.0${computedHours.split(".")[1]}`;
 
   return computedHours;
-
 }
-//if(computedHours.split('.')[1] === '0')
-//return `${hours.toString().split('.')[0]}.${hours.toString().split('.')[0] * 0.6}`
-

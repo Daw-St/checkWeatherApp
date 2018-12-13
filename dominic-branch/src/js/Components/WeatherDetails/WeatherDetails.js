@@ -5,6 +5,12 @@ import { currentDays, currentIcon } from "../../Helpers/helpers";
 export default class WeatherDetails extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      toggleTime : "Day",
+      statsToShow: {},
+      wind: {}
+    }
+    this.eventInput;
   }
 
   // renderList =()=>{
@@ -20,14 +26,36 @@ export default class WeatherDetails extends Component {
   //     })
   // }
 
+  componentDidMount(){
+    this.eventInput = document.getElementById('dn')
+    this.eventInput.addEventListener('click', this.onChecked);
+    console.log('event',this.eventInput);
+    this.setState({ statsToShow: this.props.card.Day, wind : this.props.card.Day.Wind})
+   
+
+  }
+
+  onChecked = e=>{
+    if(e.currentTarget.checked)
+    this.setState({ toggleTime : 'Night', statsToShow: this.props.card.Night, wind : this.props.card.Night.Wind})
+    else
+    this.setState({ toggleTime : 'Day', statsToShow: this.props.card.Day, wind : this.props.card.Day.Wind})
+
+  
+  }
+
   render() {
-    //console.log(this.props);
+    console.log('stats',this.state.statsToShow);
+    console.log(this.state.statsToShow.Wind);
+    
     if (this.props.card) {
       console.log("cardddd", this.props.card);
     }
+    console.log('wind',this.state.wind.Direction);
+  
     return (
       <div className="weather-forecast-details">
-        <div className="details-module">
+        <div className="details-module anim-show mod-1">
 
           <div className="toggle-time">
             <div className="toggleWrapper">
@@ -58,46 +86,46 @@ export default class WeatherDetails extends Component {
                 {this.props.card.TempMax}
                 <span className="setting">Hi</span>
               </span>
-              <span className="real-feel">RealFeel® {this.props.card.RealFeelTemperature.Max}</span>
-              <span className="precip">Precipitation {this.props.card.Day.PrecipitationProbability}%</span>
+              <span className="real-feel">RealFeel® {this.state.toggleTime ==='Day'? this.props.card.RealFeelTemperature.Max: this.props.card.RealFeelTemperature.Min}</span>
+              <span className="precip">Precipitation {this.state.statsToShow.PrecipitationProbability}%</span>
             </div>
             </div>
             <div className="day-item day-details-icon">
-              <i className={this.props.card.DayIcon}></i>
+              <i className={this.state.toggleTime === 'Day' ? this.props.card.DayIcon : this.props.card.NightIcon}></i>
             </div>
           </div>
           <div className="day-details-cond">
-            <div>{this.props.card.Day.LongPhrase}</div>
+            <div>{this.state.statsToShow.LongPhrase}</div>
             <div className="air-stats">Air Quality: {this.props.card.AirQuality.Category} ({this.props.card.AirQuality.Type})</div>
           </div>
           </div>
 
         </div>
 
-        <div className="wind-module" >
+        <div className="wind-module anim-show mod-2" >
         <div className="wind-details-container">
           <ul className="wind-stats">
             <li>Winds from the</li>
-            <li>{this.props.card.Day.Wind.Direction} {this.props.card.Day.Wind.Speed}</li>
-            <li>Guts: {this.props.card.Day.Wind.WindGust}</li>
+            <li>{this.state.wind.Direction} {this.state.wind.Speed}</li>
+            <li>Guts: {this.state.wind.WindGust}</li>
           </ul>
           <div className="wind-icon">
-            <i className={`wi wi-wind wi-from-${this.props.card.Day.Wind.Direction}`}></i>
+            <i className={`wi wi-wind wi-from-${this.state.wind.Direction}`}></i>
           </div>
         </div>
         <ul className="weather-stats">
-          <li>Clouds: {this.props.card.Day.Clouds}</li>
-          <li>Precipitation: {this.props.card.Day.TotalLiquid}</li>
-          <li>Rain: {this.props.card.Day.Rain}</li>
-          <li>Snow: {this.props.card.Day.Snow}</li>
-          <li>Thunderstorms: {this.props.card.Day.ThunderstormProbability}%</li>
-          <li>Hours of Precipitation: {this.props.card.Day.HoursOfPrecipitation} hrs</li>
-          <li>Hours of Rain: {this.props.card.Day.HoursOfRain} hrs</li>
+          <li>Clouds: {this.state.statsToShow.Clouds}</li>
+          <li>Precipitation: {this.state.statsToShow.TotalLiquid}</li>
+          <li>Rain: {this.state.statsToShow.Rain}</li>
+          <li>Snow: {this.state.statsToShow.Snow}</li>
+          <li>Thunderstorms: {this.state.statsToShow.ThunderstormProbability}%</li>
+          <li>Hours of Precipitation: {this.state.statsToShow.HoursOfPrecipitation} hrs</li>
+          <li>Hours of Rain: {this.state.statsToShow.HoursOfRain} hrs</li>
           <li></li>
         </ul>
         </div>
 
-        <div className="rise-modules">
+        <div className="rise-module anim-show mod-3">
 
           <div className="sun-module">
             <div className="sun-details">
@@ -110,6 +138,9 @@ export default class WeatherDetails extends Component {
                 </li>
                 <li>
                   Sunset: <span>{this.props.card.Sun.Set}</span>
+                </li>
+                <li>
+                  Duration: <span>{this.props.card.Sun.Duration} hr</span>
                 </li>
               </ul>
             </div>
@@ -127,6 +158,9 @@ export default class WeatherDetails extends Component {
                 </li>
                 <li>
                   Moonset: <span>{this.props.card.Moon.Set}</span>
+                </li>
+                <li>
+                  Duration: <span>{this.props.card.Moon.Duration} hr</span>
                 </li>
               </ul>
             </div>
