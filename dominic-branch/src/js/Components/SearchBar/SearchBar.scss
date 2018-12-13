@@ -1,0 +1,26 @@
+
+
+
+.SearchBar-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+input#Search-Bar{
+   height: 65px;
+    font-size: 30px;
+    color: #333;
+    opacity: 0.8;
+   
+  
+}
+
+div.ui.massive.icon.input{
+    width: 100%;
+}
+
+form#search-form{
+    width: 30%
+
+}
