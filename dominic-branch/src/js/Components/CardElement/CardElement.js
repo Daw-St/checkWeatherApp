@@ -7,8 +7,8 @@ export default function CardElement(props) {
         <h1 className="card-header">{props.day.WeekDay}</h1>
       </header>
       <p className="card-temp box-highlight">
-          <span className="large-temp">{props.day.TempMax}</span>
-          <span className="small-temp">/{props.day.TempMin}</span>
+          <span className="large-temp-card">{props.day.TempMax}</span>
+          <span className="small-temp-card">/{props.day.TempMin}C</span>
       </p>
       <div className="card-icon">
         <i className={props.day.IconToShow} />

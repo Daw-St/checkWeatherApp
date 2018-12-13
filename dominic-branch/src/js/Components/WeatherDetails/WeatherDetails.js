@@ -21,13 +21,14 @@ export default class WeatherDetails extends Component {
   // }
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     if (this.props.card) {
       console.log("cardddd", this.props.card);
     }
     return (
       <div className="weather-forecast-details">
         <div className="details-module">
+
           <div className="toggle-time">
             <div class="toggleWrapper">
               <input type="checkbox" class="dn" id="dn" />
@@ -46,13 +47,37 @@ export default class WeatherDetails extends Component {
               </label>
             </div>
           </div>
+
           <div className="day-details-wrapper">
-            <div className="day-details">8</div>
-            <div className="day-details-icon">8</div>
+          <div className="day-elements-wrapper" >
+            <div className="day-item day-details-temp">
+
+            <div className="temp">
+            <h3>Day</h3>
+              <span className="large-temp">
+                {this.props.card.TempMax}
+                <span className="setting">Hi</span>
+              </span>
+              <span className="real-feel">RealFeel® {this.props.card.RealFeelTemperature.Max}</span>
+              <span className="precip">Precipitation {this.props.card.Day.PrecipitationProbability}%</span>
+            </div>
+            </div>
+            <div className="day-item day-details-icon">
+              <i className={this.props.card.DayIcon}></i>
+            </div>
           </div>
+          <div className="day-details-cond">
+            {this.props.card.Day.LongPhrase}
+          </div>
+          </div>
+
         </div>
-        <div className="wind-module" />
+
+        <div className="wind-module" >
+        </div>
+
         <div className="rise-modules">
+
           <div className="sun-module">
             <div className="sun-details">
               <div className="feature-title">
@@ -69,6 +94,7 @@ export default class WeatherDetails extends Component {
             </div>
             <i className="rise-icon wi wi-day-sunny" />
           </div>
+
           <div className="moon-module">
             <div className="moon-details">
               <div className="feature-title">

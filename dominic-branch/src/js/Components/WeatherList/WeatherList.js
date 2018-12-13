@@ -73,6 +73,14 @@ export default class WeatherList extends Component {
 
 const obj = [
   {
+    AirQuality:{
+      Category: "Good",
+      Type: "Particle Pollution"
+    },
+    RealFeelTemperature:{
+      Max: "3°",
+      Min: "-3°"
+    },
     City: "Wrocław",
     Date: "2018-12-11",
     Day: {
@@ -128,11 +136,19 @@ const obj = [
       Rise: "07:45",
       Set: "15:45"
     },
-    TempMax: "3°C",
-    TempMin: "-1°C"
+    TempMax: "3°",
+    TempMin: "-1°"
   },
 
   {
+    AirQuality:{
+    Category: "Good",
+    Type: "Particle Pollution"
+  },
+  RealFeelTemperature:{
+    Max: "3°",
+    Min: "-3°"
+  },
     City: "Wrocław",
     Date: "2018-12-12",
     Day: {
@@ -188,11 +204,19 @@ const obj = [
       Rise: "07:45",
       Set: "15:45"
     },
-    TempMax: "3°C",
-    TempMin: "-1°C"
+    TempMax: "3°",
+    TempMin: "-1°"
   },
 
   {
+    AirQuality:{
+      Category: "Good",
+      Type: "Particle Pollution"
+    },
+    RealFeelTemperature:{
+      Max: "3°",
+      Min: "-3°"
+    },
     City: "Wrocław",
     Date: "2018-12-13",
     Day: {
@@ -248,11 +272,19 @@ const obj = [
       Rise: "07:45",
       Set: "15:45"
     },
-    TempMax: "3°C",
-    TempMin: "-1°C"
+    TempMax: "3°",
+    TempMin: "-1°"
   },
 
   {
+    AirQuality:{
+      Category: "Good",
+      Type: "Particle Pollution"
+    },
+    RealFeelTemperature:{
+      Max: "3°",
+      Min: "-3°"
+    },
     City: "Wrocław",
     Date: "2018-12-14",
     Day: {
@@ -308,11 +340,19 @@ const obj = [
       Rise: "07:45",
       Set: "15:45"
     },
-    TempMax: "3°C",
-    TempMin: "-1°C"
+    TempMax: "3°",
+    TempMin: "-1°"
   },
 
   {
+    AirQuality:{
+      Category: "Good",
+      Type: "Particle Pollution"
+    },
+    RealFeelTemperature:{
+      Max: "3°",
+      Min: "-3°"
+    },
     City: "Wrocław",
     Date: "2018-12-15",
     Day: {
@@ -343,6 +383,7 @@ const obj = [
       Set: "19:37"
     },
     Night: {
+      
       Icon: 7,
       Clouds: "95%",
       HoursOfPrecipitation: 7,
@@ -369,7 +410,10 @@ const obj = [
       Rise: "07:45",
       Set: "15:45"
     },
-    TempMax: "3°C",
-    TempMin: "-1°C"
+    TempMax: "3°",
+    TempMin: "-1°"
   }
 ];
+
+
+

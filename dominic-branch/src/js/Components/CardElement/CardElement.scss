@@ -11,6 +11,7 @@
     color: rgb(200,200,200);
     text-rendering: optimizeLegibility;
     background-color: rgb(25,35,45);
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
     
 }
 .card:hover{
@@ -47,10 +48,11 @@
     text-shadow: 0 5px 5px rgb(25,35,45);
 }
 
-.large-temp{
+.large-temp-card{
+    padding-top: 5px;
     font-size: 35px;
 }
-.small-temp{
+.small-temp-card{
     top: -7px;
     font-size: 24px;
     position: relative;

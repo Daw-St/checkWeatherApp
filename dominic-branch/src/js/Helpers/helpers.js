@@ -76,13 +76,20 @@ export function formatWeatherData(res, city) {
   console.log("list", res);
 
   res.map((data, index) => {
-    console.log(city);
 
     return weatherData.push({
       City: city,
+      AirQuality: {
+        Category: data.AirAndPollen[0].Category,
+        Type: data.AirAndPollen[0].Type,
+      },
       Date: data.Date.slice(0, 10),
       TempMax: `${Math.round(data.Temperature.Maximum.Value)}°C`,
       TempMin: `${Math.round(data.Temperature.Minimum.Value)}°C`,
+      RealFeelTemperature:{
+        Max: `${Math.round(data.RealFeelTemperature.Maximum.Value)}°C`,
+        Min:`${Math.round(data.RealFeelTemperature.Minimum.Value)}°C`
+      },
       Moon: {
         Rise: data.Moon.Rise.slice(11, 16),
         Set: data.Moon.Set.slice(11, 16)
@@ -137,8 +144,8 @@ export function formatWeatherData(res, city) {
       }
     });
   });
-
-  return currentDays(weatherData);
+  console.log('mod',currentIcon(currentDays(weatherData)));
+  return currentIcon(currentDays(weatherData));
 }
 
 export function currentDays(weatherData) {
@@ -218,7 +225,7 @@ export function currentDays(weatherData) {
 
 
 export function currentIcon(weatherData) {
-  console.log('etry');
+  //console.log('etry');
 
   const weatherIcon = [
      { 1: "wi wi-day-sunny" },
@@ -276,6 +283,7 @@ export function currentIcon(weatherData) {
 
     item.DayIcon = item.IconToShow = weatherIcon[item.Day.Icon -1][item.Day.Icon]; 
     item.NightIcon = weatherIcon[item.Night.Icon -1][item.Night.Icon];
+
     if (time < sunSet && time > sunRise || index !== 0  ) {
       //console.log('day',item.Day.Icon);
       item.IconToShow = weatherIcon[item.Day.Icon -1][item.Day.Icon]; 

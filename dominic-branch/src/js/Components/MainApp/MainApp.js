@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router';
 import axios from 'axios';
-import { cityUrl, cordsUrl, formatData, formatWeatherData } from '../../Helpers/helpers';
+import { cityUrl, cordsUrl, formatData, formatWeatherData,currentIcon } from '../../Helpers/helpers';
 
 
 import SearchBar from '../SearchBar/SearchBar';
@@ -32,12 +32,12 @@ export default class MainApp extends Component{
         // console.log(cityUrl(this.state.weatherData));
        
         //accuweather api 
-    //     axios.get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=L1PICh0zcth59rE0BFf4GTGXOoAnucGj&q=${this.state.city}`)
-    //     .then(res => axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${res.data[0].Key}?apikey=L1PICh0zcth59rE0BFf4GTGXOoAnucGj&details=true&metric=true`)
-    //     .then(res =>{
-    //        const formatedData = formatWeatherData(res.data.DailyForecasts, this.state.city);
-    //        this.setState({ weatherData: formatedData})
-    //    }))
+      //   axios.get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=L1PICh0zcth59rE0BFf4GTGXOoAnucGj&q=${this.state.city}`)
+      //   .then(res => axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${res.data[0].Key}?apikey=L1PICh0zcth59rE0BFf4GTGXOoAnucGj&details=true&metric=true`)
+      //   .then(res =>{
+      //      const formatedData = formatWeatherData(res.data.DailyForecasts, this.state.city);
+      //      this.setState({ weatherData: formatedData})
+      //  }))
     }
     
     componentDidMount(){
@@ -60,12 +60,13 @@ export default class MainApp extends Component{
         //  }
 
          this.fetchData();
-        
+        currentIcon(obj)
     }  
     
         render(){
+          //console.log(this.state.weatherData);
             if(obj){          
-            console.log('id',obj[this.state.cardId]);
+            //console.log('id',obj[this.state.cardId]);
             }
             return(
                 <Fragment>
@@ -81,6 +82,14 @@ export default class MainApp extends Component{
 //<WeatherDetails card={this.state.chosenCard} data={this.state.weatherData[this.state.cardId]}/>
 const obj = [
     {
+      AirQuality:{
+        Category: "Good",
+        Type: "Particle Pollution"
+      },
+      RealFeelTemperature:{
+        Max: "3°",
+        Min: "-3°"
+      },
       City: "Wrocław",
       Date: "2018-12-11",
       Day: {
@@ -136,11 +145,19 @@ const obj = [
         Rise: "07:45",
         Set: "15:45"
       },
-      TempMax: "3°C",
-      TempMin: "-1°C"
+      TempMax: "3°",
+      TempMin: "-1°"
     },
   
     {
+      AirQuality:{
+      Category: "Good",
+      Type: "Particle Pollution"
+    },
+    RealFeelTemperature:{
+      Max: "3°",
+      Min: "-3°"
+    },
       City: "Wrocław",
       Date: "2018-12-12",
       Day: {
@@ -196,11 +213,19 @@ const obj = [
         Rise: "07:45",
         Set: "15:45"
       },
-      TempMax: "3°C",
-      TempMin: "-1°C"
+      TempMax: "3°",
+      TempMin: "-1°"
     },
   
     {
+      AirQuality:{
+        Category: "Good",
+        Type: "Particle Pollution"
+      },
+      RealFeelTemperature:{
+        Max: "3°",
+        Min: "-3°"
+      },
       City: "Wrocław",
       Date: "2018-12-13",
       Day: {
@@ -256,11 +281,19 @@ const obj = [
         Rise: "07:45",
         Set: "15:45"
       },
-      TempMax: "3°C",
-      TempMin: "-1°C"
+      TempMax: "3°",
+      TempMin: "-1°"
     },
   
     {
+      AirQuality:{
+        Category: "Good",
+        Type: "Particle Pollution"
+      },
+      RealFeelTemperature:{
+        Max: "3°",
+        Min: "-3°"
+      },
       City: "Wrocław",
       Date: "2018-12-14",
       Day: {
@@ -316,11 +349,19 @@ const obj = [
         Rise: "07:45",
         Set: "15:45"
       },
-      TempMax: "3°C",
-      TempMin: "-1°C"
+      TempMax: "3°",
+      TempMin: "-1°"
     },
   
     {
+      AirQuality:{
+        Category: "Good",
+        Type: "Particle Pollution"
+      },
+      RealFeelTemperature:{
+        Max: "3°",
+        Min: "-3°"
+      },
       City: "Wrocław",
       Date: "2018-12-15",
       Day: {
@@ -351,6 +392,7 @@ const obj = [
         Set: "19:37"
       },
       Night: {
+        
         Icon: 7,
         Clouds: "95%",
         HoursOfPrecipitation: 7,
@@ -377,8 +419,8 @@ const obj = [
         Rise: "07:45",
         Set: "15:45"
       },
-      TempMax: "3°C",
-      TempMin: "-1°C"
+      TempMax: "3°",
+      TempMin: "-1°"
     }
   ];
   
