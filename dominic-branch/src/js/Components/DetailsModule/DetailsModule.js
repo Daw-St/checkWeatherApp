@@ -44,6 +44,7 @@ export default function detailsModule(props){
           <div className="day-details-cond">
             <div>{props.stats.LongPhrase}</div>
             <div className="air-stats">Air Quality: {props.day.AirQuality.Category} ({props.day.AirQuality.Type})</div>
+            <div className="city-stats">{props.day.City}/ {props.day.Date}</div>
           </div>
           </div>
 

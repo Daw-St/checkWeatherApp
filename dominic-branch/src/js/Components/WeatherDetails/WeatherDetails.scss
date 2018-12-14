@@ -348,8 +348,9 @@ ul.time-period {
   position: relative;
   width: 90px;
   height: 50px;
-  background-color: #83D8FF;
+  //background-color: #83D8FF;
   //background-color: rgb(56, 102, 255);
+  border: 2px solid  #c8c8c8;
   border-radius: 90px - 6;
   transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
@@ -365,7 +366,7 @@ ul.time-period {
   &:after {
     content: 'NIGHT';
     position: absolute;
-    right: -63px;
+    right: -67px;
     top: 15px;
     font-size: 18px;
     //color: white;
@@ -378,8 +379,8 @@ ul.time-period {
   display: inline-block;
   position: relative;
   z-index: 1;
-  top: 3px;
-  left: 3px;
+  top: 1px;
+  left: 1px;
   width: 50px - 6;
   height: 50px - 6;
   background-color: #FFCF96;
@@ -486,7 +487,9 @@ ul.time-period {
 input:checked {
   +.toggle {
     //background-color: #749DD6;
-    background-color: rgb(56, 102, 255);
+    //background-color: rgb(56, 102, 255);
+    //background: #c8c8c8;
+    border: 2px solid  #c8c8c8;
 
     &:before {
       //color: white;
@@ -503,6 +506,8 @@ input:checked {
 
     .toggle__handler {
       background-color: #FFE5B5;
+  
+
       transform: translate3d(40px, 0, 0) rotate(0);
 
       .crater {

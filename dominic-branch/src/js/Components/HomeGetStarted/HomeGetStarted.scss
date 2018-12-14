@@ -135,18 +135,27 @@
   .anim-home-el-1{
     opacity: 0;
     animation: header-show 1s ease-in 1 forwards;
-    animation-delay: 166ms;
+    //animation-delay: 166ms;
+   animation-delay: 250ms;
+
   }
 
   .anim-home-el-2{
     opacity: 0;
     animation: desc-show 1s ease-in 1 forwards;
-    animation-delay: 332ms;
+    //animation-delay: 332ms;
+    //animation-delay: 166ms;
+   animation-delay: 250ms;
+
+
   }
   .anim-home-el-3{
     opacity: 0;
     animation: btn-show 1s ease-in 1 forwards;
-    animation-delay: 332ms;
+    //animation-delay: 332ms;
+   // animation-delay: 300ms;
+   animation-delay: 250ms;
+
   }
 
 
