@@ -41,6 +41,7 @@
     line-height: 20px;
     margin-top: 15px;
     //color: #1f384d;
+    position: relative;
   }
   
   .day-item {
@@ -101,6 +102,8 @@
     margin-top: 20px;
     color: #FAAC33;
     font-size: 20px;
+    position: absolute;
+    top: 80px;
 }
 
 .date-stats{
