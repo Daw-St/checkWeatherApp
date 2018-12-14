@@ -1,0 +1,48 @@
+.wind-module {
+    position: relative;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    height: 370px;
+    //width: calc((1/3.5)*100%);
+    width: 380px;
+    //background-color: white;
+    background-color: #19232d;
+    background-color: #283441;
+    padding: 20px 15px 15px;
+    border: #283441 solid 1px;
+    border-radius: 5px;
+  }
+  
+  .wind-details-container {
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .wind-stats {
+    padding: 10px 0;
+    margin: 0;
+  }
+  
+  .wind-stats li {
+    padding-bottom: 10px;
+  }
+  
+  .wind-icon {
+    //color: #333;
+    position: absolute;
+    left: 220px;
+    font-size: 100px;
+    
+  }
+  
+  .weather-stats {
+    padding: 10px 0;
+    margin: 0;
+    color: #c8c8c8;
+  }
+  
+  .weather-stats li {
+    padding-bottom: 10px;
+  }
+  

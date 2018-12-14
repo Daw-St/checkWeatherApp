@@ -17,7 +17,26 @@ body{
     padding: 0;
     font-family: $primary-font;
 }
+canvas{ display: block; vertical-align: bottom; }
 
 ul{
     list-style: none;
 }
+
+body::-webkit-scrollbar {
+    background-color:#fff;
+    width:16px
+}
+
+/* background of the scrollbar except button or resizer */
+body::-webkit-scrollbar-track {
+    background-color:#fff
+}
+
+/* scrollbar itself */
+body::-webkit-scrollbar-thumb {
+    background-color:#8e8e8f;
+    border-radius:16px;
+    border:3px solid #fff
+}
+

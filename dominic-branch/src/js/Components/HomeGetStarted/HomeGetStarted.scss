@@ -2,6 +2,7 @@
 
 
 .main-title{
+  position: relative;
   font-size: 60px;
   text-transform: uppercase;
   margin:0;
@@ -14,6 +15,7 @@
 }
 
 .desc-header{
+  position: relative;
   font-size: 37px;
     //color: #e0dfdc;
     font-family: Lato;
@@ -35,6 +37,7 @@
 
   
   a.btn-get-started {
+    position: relative;
     color:white;
     margin-bottom: 170px;
     text-decoration:none;
@@ -97,3 +100,86 @@
       }
     }
   }
+
+
+  @keyframes header-show{
+    0%{
+      top: -600px;
+    }
+    100%{
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes desc-show{
+    0%{
+      right: -600px;
+    }
+    100%{
+      right: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes btn-show{
+    0%{
+      bottom: -600px;
+    }
+    100%{
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+
+  .anim-home-el-1{
+    opacity: 0;
+    animation: header-show 1s ease-in 1 forwards;
+    //animation-delay: 166ms;
+   animation-delay: 250ms;
+
+  }
+
+  .anim-home-el-2{
+    opacity: 0;
+    animation: desc-show 1s ease-in 1 forwards;
+    //animation-delay: 332ms;
+    //animation-delay: 166ms;
+   animation-delay: 250ms;
+
+
+  }
+  .anim-home-el-3{
+    opacity: 0;
+    animation: btn-show 1s ease-in 1 forwards;
+    //animation-delay: 332ms;
+   // animation-delay: 300ms;
+   animation-delay: 250ms;
+
+  }
+
+
+//   .anim-flip{
+
+//     animation-name: desc-show;
+//     animation-duration: 1s;
+//     animation-timing-function: ease-in;
+//     animation-iteration-count: 1;
+//     animation-fill-mode: forwards;
+// }
+
+// .anim-flip-card-0{
+//     animation-delay: 166ms;
+// }
+// .anim-flip-card-1{
+//     animation-delay: 332ms;
+// }
+// .anim-flip-card-2{
+//     animation-delay: 498ms;
+// }
+// .anim-flip-card-3{
+//     animation-delay: 664ms;
+// }
+// .anim-flip-card-4{
+//     animation-delay: 830ms;
+// }

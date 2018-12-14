@@ -32,12 +32,12 @@ export default class MainApp extends Component{
         // console.log(cityUrl(this.state.weatherData));
        
         //accuweather api 
-      //   axios.get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=L1PICh0zcth59rE0BFf4GTGXOoAnucGj&q=${this.state.city}`)
-      //   .then(res => axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${res.data[0].Key}?apikey=L1PICh0zcth59rE0BFf4GTGXOoAnucGj&details=true&metric=true`)
-      //   .then(res =>{
-      //      const formatedData = formatWeatherData(res.data.DailyForecasts, this.state.city);
-      //      this.setState({ weatherData: formatedData})
-      //  }))
+        axios.get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=L1PICh0zcth59rE0BFf4GTGXOoAnucGj&q=${this.state.city}`)
+        .then(res => axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${res.data[0].Key}?apikey=L1PICh0zcth59rE0BFf4GTGXOoAnucGj&details=true&metric=true`)
+        .then(res =>{
+           const formatedData = formatWeatherData(res.data.DailyForecasts, this.state.city);
+           this.setState({ weatherData: formatedData})
+       }))
     }
     
     componentDidMount(){
@@ -60,25 +60,27 @@ export default class MainApp extends Component{
         //  }
 
          this.fetchData();
-        currentIcon(obj)
+        //currentIcon(obj)
     }  
     
         render(){
-          //console.log(this.state.weatherData);
-            if(obj){          
-            //console.log('id',obj[this.state.cardId]);
-            }
+          console.log(this.state.cardId);
+          if(this.state.weatherData){
             return(
                 <Fragment>
                 <VideoBackground data='homeVideo'/>
                     <SearchBar setCity={city => this.setState({ city : city}, this.fetchData)} />
-                    <WeatherList cardId={(id) => this.setState({ cardId: id})} data={this.state.weatherData}/>
-                    <WeatherDetails  card={obj[this.state.cardId]}/>
+                    <WeatherList cardId={(id, day) => this.setState({ cardId: id, dayToShow: day})} data={this.state.weatherData}/>
+                    <WeatherDetails card={this.state.weatherData[this.state.cardId]} />
                 </Fragment>
             )
+          }
+          else{
+            return <div></div>
+          }
         }
 }
-
+//card={this.state.weatherData[this.state.cardId]}
 //<WeatherDetails card={this.state.chosenCard} data={this.state.weatherData[this.state.cardId]}/>
 const obj = [
     {
@@ -92,6 +94,7 @@ const obj = [
       },
       City: "Wrocław",
       Date: "2018-12-11",
+      DateToShow: "Dec 14",
       Day: {
         Icon: 29,
         Clouds: "92%",
@@ -117,7 +120,8 @@ const obj = [
   
       Moon: {
         Rise: "10:48",
-        Set: "19:37"
+        Set: "19:37",
+        Duration: "9.55"
       },
       Night: {
         Icon: 19,
@@ -143,7 +147,8 @@ const obj = [
       },
       Sun: {
         Rise: "07:45",
-        Set: "15:45"
+        Set: "15:45",
+        Duration: "7.58"
       },
       TempMax: "3°",
       TempMin: "-1°"
@@ -160,6 +165,7 @@ const obj = [
     },
       City: "Wrocław",
       Date: "2018-12-12",
+      DateToShow: "Dec 15",
       Day: {
         Icon: 19,
         Clouds: "92%",
@@ -185,7 +191,8 @@ const obj = [
   
       Moon: {
         Rise: "10:48",
-        Set: "19:37"
+        Set: "19:37",
+        Duration: "9.55"
       },
       Night: {
         Icon: 8,
@@ -211,7 +218,8 @@ const obj = [
       },
       Sun: {
         Rise: "07:45",
-        Set: "15:45"
+        Set: "15:45",
+        Duration: "7.58"
       },
       TempMax: "3°",
       TempMin: "-1°"
@@ -228,6 +236,7 @@ const obj = [
       },
       City: "Wrocław",
       Date: "2018-12-13",
+      DateToShow: "Dec 16",
       Day: {
         Icon: 7,
         Clouds: "92%",
@@ -253,7 +262,8 @@ const obj = [
   
       Moon: {
         Rise: "10:48",
-        Set: "19:37"
+        Set: "19:37",
+        Duration: "9.55"
       },
       Night: {
         Icon: 8,
@@ -279,7 +289,8 @@ const obj = [
       },
       Sun: {
         Rise: "07:45",
-        Set: "15:45"
+        Set: "15:45",
+        Duration: "7.58"
       },
       TempMax: "3°",
       TempMin: "-1°"
@@ -296,6 +307,7 @@ const obj = [
       },
       City: "Wrocław",
       Date: "2018-12-14",
+      DateToShow: "Dec 17",
       Day: {
         Icon: 7,
         Clouds: "92%",
@@ -321,7 +333,8 @@ const obj = [
   
       Moon: {
         Rise: "10:48",
-        Set: "19:37"
+        Set: "19:37",
+        Duration: "9.55"
       },
       Night: {
         Icon: 8,
@@ -347,7 +360,8 @@ const obj = [
       },
       Sun: {
         Rise: "07:45",
-        Set: "15:45"
+        Set: "15:45",
+        Duration: "7.58"
       },
       TempMax: "3°",
       TempMin: "-1°"
@@ -364,6 +378,7 @@ const obj = [
       },
       City: "Wrocław",
       Date: "2018-12-15",
+      DateToShow: "Dec 18",
       Day: {
         Icon: 6,
         Clouds: "92%",
@@ -389,10 +404,10 @@ const obj = [
   
       Moon: {
         Rise: "10:48",
-        Set: "19:37"
+        Set: "19:37",
+        Duration: "9.55"
       },
-      Night: {
-        
+      Night: {       
         Icon: 7,
         Clouds: "95%",
         HoursOfPrecipitation: 7,
@@ -417,7 +432,8 @@ const obj = [
       },
       Sun: {
         Rise: "07:45",
-        Set: "15:45"
+        Set: "15:45",
+        Duration: "7.58"
       },
       TempMax: "3°",
       TempMin: "-1°"

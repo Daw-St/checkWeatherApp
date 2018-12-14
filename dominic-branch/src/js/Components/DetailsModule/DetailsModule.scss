@@ -1,0 +1,361 @@
+.details-module {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    //background-color: white;
+    //background-color: #3B444C;
+    background-color: #19232d;
+    background-color: #283441;
+    margin-bottom: 5px;
+    height: 370px;
+    //width: calc((1/3.5)*100%);
+    width: 380px;
+    border: #283441 solid 1px;
+    border-radius: 5px;
+  }
+  
+  .day-details-wrapper {
+    display: flex;
+    //margin-left: 5px;
+    margin-bottom: 5px;
+    height: 370px;
+    width: 100%;
+    padding: 40px 15px 20px;
+    flex-direction: column;
+  
+    //background-color: white;
+    //background-color: #3B444C;
+    background-color: #19232d;
+    background-color: #283441;
+    
+  }
+  
+  .day-elements-wrapper {
+    display: flex;
+  
+  }
+  
+  .day-details-cond {
+    width: 100%;
+    clear: both;
+    line-height: 20px;
+    margin-top: 15px;
+    //color: #1f384d;
+    position: relative;
+  }
+  
+  .day-item {
+    width: 50%
+  }
+  
+  .day-details-temp {
+    width: 50%
+  }
+  
+  .day-details-icon {
+    width: 50%;
+    font-size: 90px;
+    padding-left: 10px;
+    
+  }
+  
+  
+  
+  .temp {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .large-temp {
+    font-size: 50px;
+  }
+  
+  .temp .setting {
+    font-size: 13px;
+    color: #c8c8c8;
+    position: relative;
+    left: -14px;
+    text-transform: uppercase;
+  }
+  
+  
+  .real-feel {
+    margin-top: 15px;
+    color: #c8c8c8;
+  }
+  
+  .precip {
+    margin-top: 5px;
+    color: #c8c8c8;
+  }
+  
+  .air-stats {
+    margin-top: 10px;
+  }
+  
+  
+
+
+
+
+.city-date-stats{
+    margin-top: 20px;
+    color: #FAAC33;
+    font-size: 20px;
+    position: absolute;
+    top: 80px;
+}
+
+.date-stats{
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+// TOGGLE
+
+.toggle-time {
+    display: flex;
+    justify-content: center;
+    //background-color: white;
+    background-color: #19232d;
+    background-color: #283441;
+    padding-top: 15px;
+    font-weight: 700;
+    height: 70px;
+  }
+  
+  
+  .toggleWrapper {
+    position: relative;
+  
+    input {
+      position: absolute;
+      left: -99em;
+    }
+  }
+  
+  .toggle {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    width: 90px;
+    height: 50px;
+    //background-color: #83D8FF;
+    //background-color: rgb(56, 102, 255);
+    border: 2px solid  #c8c8c8;
+    border-radius: 90px - 6;
+    transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  
+    &:before {
+      content: 'DAY';
+      position: absolute;
+      left: -50px;
+      top: 15px;
+      font-size: 18px;
+      color: #FFAC33;
+    }
+  
+    &:after {
+      content: 'NIGHT';
+      position: absolute;
+      right: -67px;
+      top: 15px;
+      font-size: 18px;
+      //color: white;
+      color: #c8c8c8;
+     
+    }
+  }
+  
+  .toggle__handler {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    top: 1px;
+    left: 1px;
+    width: 50px - 6;
+    height: 50px - 6;
+    background-color: #FFCF96;
+    border-radius: 50px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+    transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: rotate(-45deg);
+  
+    .crater {
+      position: absolute;
+      background-color: #E8CDA5;
+      opacity: 0;
+      transition: opacity 200ms ease-in-out;
+      border-radius: 100%;
+    }
+  
+    .crater--1 {
+      top: 18px;
+      left: 10px;
+      width: 4px;
+      height: 4px;
+    }
+  
+    .crater--2 {
+      top: 28px;
+      left: 22px;
+      width: 6px;
+      height: 6px;
+    }
+  
+    .crater--3 {
+      top: 10px;
+      left: 25px;
+      width: 8px;
+      height: 8px;
+    }
+  }
+  
+  .star {
+    position: absolute;
+    background-color: #ffffff;
+    transition: all 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    border-radius: 50%;
+  }
+  
+  .star--1 {
+    top: 10px;
+    left: 35px;
+    z-index: 0;
+    width: 30px;
+    height: 3px;
+  }
+  
+  .star--2 {
+    top: 18px;
+    left: 28px;
+    z-index: 1;
+    width: 30px;
+    height: 3px;
+  }
+  
+  .star--3 {
+    top: 27px;
+    left: 40px;
+    z-index: 0;
+    width: 30px;
+    height: 3px;
+  }
+  
+  .star--4,
+  .star--5,
+  .star--6 {
+    opacity: 0;
+    transition: all 300ms 0 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  
+  .star--4 {
+    top: 16px;
+    left: 11px;
+    z-index: 0;
+    width: 2px;
+    height: 2px;
+    transform: translate3d(3px, 0, 0);
+  }
+  
+  .star--5 {
+    top: 32px;
+    left: 17px;
+    z-index: 0;
+    width: 3px;
+    height: 3px;
+    transform: translate3d(3px, 0, 0);
+  }
+  
+  .star--6 {
+    top: 36px;
+    left: 28px;
+    z-index: 0;
+    width: 2px;
+    height: 2px;
+    transform: translate3d(3px, 0, 0);
+  }
+  
+  input:checked {
+    +.toggle {
+      //background-color: #749DD6;
+      //background-color: rgb(56, 102, 255);
+      //background: #c8c8c8;
+      border: 2px solid  #c8c8c8;
+  
+      &:before {
+        //color: white;
+        color: #c8c8c8;
+      
+       
+        
+      }
+  
+      &:after {
+       //color: white;
+       color: #FFAC33;
+      }
+  
+      .toggle__handler {
+        background-color: #FFE5B5;
+    
+  
+        transform: translate3d(40px, 0, 0) rotate(0);
+  
+        .crater {
+          opacity: 1;
+        }
+      }
+  
+      .star--1 {
+        width: 2px;
+        height: 2px;
+      }
+  
+      .star--2 {
+        width: 4px;
+        height: 4px;
+        transform: translate3d(-5px, 0, 0);
+      }
+  
+      .star--3 {
+        width: 2px;
+        height: 2px;
+        transform: translate3d(-7px, 0, 0);
+      }
+  
+      .star--4,
+      .star--5,
+      .star--6 {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+  
+      .star--4 {
+        transition: all 300ms 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      }
+  
+      .star--5 {
+        transition: all 300ms 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      }
+  
+      .star--6 {
+        transition: all 300ms 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      }
+    }
+  }
+  
+  
+  @media screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+  
+  
