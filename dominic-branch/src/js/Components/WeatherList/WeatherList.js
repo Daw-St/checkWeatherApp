@@ -28,11 +28,10 @@ export default class WeatherList extends Component {
   // }
 
   renderList = () => {
-    const tmpObj = currentIcon(currentDays(obj));
-
-    console.log(tmpObj);
-    if (tmpObj)
-      return tmpObj.map((day, index) => {
+    //const tmpObj = currentIcon(currentDays(obj));
+    //console.log(tmpObj);
+    if (this.props.data)
+      return this.props.data.map((day, index) => {
         return <CardElement cardNum={index} key={index} day={day} />;
       });
 
@@ -43,7 +42,7 @@ export default class WeatherList extends Component {
     for (let i = 0; i < 5; i++) {
       this.events[i] = document.getElementById(`card-${i}`).addEventListener('click', this.onClick)
     }
-    const card = document.getElementById(`card-${this.state.chosenCard}`).classList.add('focus-card');
+    document.getElementById(`card-${this.state.chosenCard}`).classList.add('focus-card');
   }
 
   componentWillUnmount(){
@@ -66,6 +65,7 @@ export default class WeatherList extends Component {
   }
 
   render() {
+    console.log(this.state.chosenCard);
     return (
       <div className="weather-forecast-list">
         <div className="card-wrapper">{this.renderList()}</div>

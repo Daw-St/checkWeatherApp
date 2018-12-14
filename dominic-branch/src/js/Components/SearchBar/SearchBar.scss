@@ -12,9 +12,6 @@ input#Search-Bar{
     font-size: 30px;
     //color: #333;
     color: #ffac33;
-    opacity: 0.8;
-   
-  
 }
 
 div.ui.massive.icon.input{
@@ -22,7 +19,8 @@ div.ui.massive.icon.input{
 }
 
 form#search-form{
-    width: 30%
+    width: 30%;
+    position: relative;
 
 }
 
@@ -60,7 +58,7 @@ form#search-form{
        border-bottom:2px solid #ffac33; 
   }
   
-  label {
+  #search-label {
     color:#fff; 
     font-size:30px;
     font-weight:normal;
@@ -73,14 +71,14 @@ form#search-form{
     -webkit-transition:0.2s ease all;
   }
   
-  .floating-input:focus ~ label, .floating-input:not(:placeholder-shown) ~ label {
+  .floating-input:focus ~ #search-label, .floating-input:not(:placeholder-shown) ~ #search-label {
     top:-18px;
     font-size:16px;
     color:#5264AE;
     color: #ffac33
   }
   
-  .floating-select:focus ~ label , .floating-select:not([value=""]):valid ~ label {
+  .floating-select:focus ~ #search-label , .floating-select:not([value=""]):valid ~ #search-label {
     top:-18px;
     font-size:16px;
     color:#5264AE;
@@ -132,3 +130,29 @@ form#search-form{
 //       from { background:#5264AE; }
 //     to 	{ width:0; background:transparent; }
 //   }
+
+
+
+.search-show{
+    opacity: 0;
+    animation-name: showSearch;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 400ms;
+}
+
+   
+
+
+@keyframes showSearch{
+    0%{
+        opacity: 0;
+        top: -400px;
+    }
+    100%{
+        opacity: 1;
+        top: 0;
+    }
+}

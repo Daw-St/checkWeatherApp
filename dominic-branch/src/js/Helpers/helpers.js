@@ -2,73 +2,73 @@ import axios from "axios";
 
 const apiKey = "&APPID=6d99186162ab69f549aae9f7f584c075";
 
-export default (city, longitude, latitude) => {
-  if (city) {
-    console.log(city);
-    return axios
-      .get(cityUrl(city))
-      .then(res => res.data)
-      .catch(err => console.log(err));
-  } else if (longitude && latitude) {
-    console.log(longitude);
-    return axios
-      .get(cordsUrl(latitude, longitude))
-      .then(res => res.data)
-      .catch(err => console.log(err));
-  }
-};
+// export default (city, longitude, latitude) => {
+//   if (city) {
+//     console.log(city);
+//     return axios
+//       .get(cityUrl(city))
+//       .then(res => res.data)
+//       .catch(err => console.log(err));
+//   } else if (longitude && latitude) {
+//     console.log(longitude);
+//     return axios
+//       .get(cordsUrl(latitude, longitude))
+//       .then(res => res.data)
+//       .catch(err => console.log(err));
+//   }
+// };
 
-export function formatData(res, city) {
-  let weatherData = [];
-  console.log("list", res.list);
-  res.list.map((data, index) => {
-    if (city) {
-      console.log("data", data);
-      return weatherData.push({
-        city: city,
-        temp: `${Math.round(data.main.temp)} °C`,
-        clouds: `${data.clouds.all}%`,
-        rain: data.rain["3h"]
-          ? `${Math.round(data.rain["3h"] * 100) / 100} mm`
-          : "0 mm",
-        snow: data.snow["3h"]
-          ? `${Math.round(data.snow["3h"] * 100) / 100} mm`
-          : "0 mm",
-        pressure: `${Math.round(data.main.pressure * 100) / 100} hPa`,
-        humidity: `${data.main.humidity}%`,
-        wind: `${Math.round(data.wind.speed * 3.6)} km/h`,
-        weather: data.weather[0].main,
-        description: data.weather[0].description,
-        date: `${data.dt_txt.split(" ")[0]}`,
-        time: `${data.dt_txt.split(" ")[1]}`,
-        icon: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
-      });
-    } else {
-      return weatherData.push({
-        city: res.city.name,
-        temp: `${Math.round(data.main.temp)} °C`,
-        clouds: `${data.clouds.all} %`,
-        rain:
-          data.rain || data.rain["3h"]
-            ? `${Math.round(data.rain["3h"] * 100) / 100} mm`
-            : "0 mm",
-        snow: data.snow["3h"]
-          ? `${Math.round(data.snow["3h"] * 100) / 100} mm`
-          : "0 mm",
-        pressure: `${Math.round(data.main.pressure * 100) / 100} hPa`,
-        humidity: `${data.main.humidity} %`,
-        wind: `${Math.round(data.wind.speed * 3.6)} km/h`,
-        weather: data.weather[0].main,
-        description: data.weather[0].description,
-        date: `${data.dt_txt.split(" ")[0]}`,
-        time: `${data.dt_txt.split(" ")[1]}`,
-        icon: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
-      });
-    }
-  });
+// export function formatData(res, city) {
+//   let weatherData = [];
+//   console.log("list", res.list);
+//   res.list.map((data, index) => {
+//     if (city) {
+//       console.log("data", data);
+//       return weatherData.push({
+//         city: city,
+//         temp: `${Math.round(data.main.temp)} °C`,
+//         clouds: `${data.clouds.all}%`,
+//         rain: data.rain["3h"]
+//           ? `${Math.round(data.rain["3h"] * 100) / 100} mm`
+//           : "0 mm",
+//         snow: data.snow["3h"]
+//           ? `${Math.round(data.snow["3h"] * 100) / 100} mm`
+//           : "0 mm",
+//         pressure: `${Math.round(data.main.pressure * 100) / 100} hPa`,
+//         humidity: `${data.main.humidity}%`,
+//         wind: `${Math.round(data.wind.speed * 3.6)} km/h`,
+//         weather: data.weather[0].main,
+//         description: data.weather[0].description,
+//         date: `${data.dt_txt.split(" ")[0]}`,
+//         time: `${data.dt_txt.split(" ")[1]}`,
+//         icon: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
+//       });
+//     } else {
+//       return weatherData.push({
+//         city: res.city.name,
+//         temp: `${Math.round(data.main.temp)} °C`,
+//         clouds: `${data.clouds.all} %`,
+//         rain:
+//           data.rain || data.rain["3h"]
+//             ? `${Math.round(data.rain["3h"] * 100) / 100} mm`
+//             : "0 mm",
+//         snow: data.snow["3h"]
+//           ? `${Math.round(data.snow["3h"] * 100) / 100} mm`
+//           : "0 mm",
+//         pressure: `${Math.round(data.main.pressure * 100) / 100} hPa`,
+//         humidity: `${data.main.humidity} %`,
+//         wind: `${Math.round(data.wind.speed * 3.6)} km/h`,
+//         weather: data.weather[0].main,
+//         description: data.weather[0].description,
+//         date: `${data.dt_txt.split(" ")[0]}`,
+//         time: `${data.dt_txt.split(" ")[1]}`,
+//         icon: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
+//       });
+//     }
+//   });
 
-  return weatherData;
-}
+//   return weatherData;
+// }
 
 export function formatWeatherData(res, city) {
   let weatherData = [];
@@ -85,11 +85,11 @@ export function formatWeatherData(res, city) {
       },
       Date: data.Date.slice(0, 10),
       DateToShow: dateConverter(data.Date.slice(0, 10)),
-      TempMax: `${Math.round(data.Temperature.Maximum.Value)}°C`,
-      TempMin: `${Math.round(data.Temperature.Minimum.Value)}°C`,
+      TempMax: `${Math.round(data.Temperature.Maximum.Value)}°`,
+      TempMin: `${Math.round(data.Temperature.Minimum.Value)}°`,
       RealFeelTemperature: {
-        Max: `${Math.round(data.RealFeelTemperature.Maximum.Value)}°C`,
-        Min: `${Math.round(data.RealFeelTemperature.Minimum.Value)}°C`
+        Max: `${Math.round(data.RealFeelTemperature.Maximum.Value)}°`,
+        Min: `${Math.round(data.RealFeelTemperature.Minimum.Value)}°`
       },
       Moon: {
         Rise: data.Moon.Rise.slice(11, 16),
@@ -152,6 +152,12 @@ export function formatWeatherData(res, city) {
   return currentIcon(currentDays(weatherData));
 }
 
+
+
+
+
+
+
 export function currentDays(weatherData) {
   const currentDate = new Date();
 
@@ -179,51 +185,12 @@ export function currentDays(weatherData) {
   });
 }
 
-// export const weatherIcon = [
-//   { 1: "wi wi-day-sunny" },
-//   { 2: "wi wi-day-sunny" },
-//   { 3: "wi wi-day-sunny-overcast" },
-//   { 4: "wi wi-day-sunny-overcast" },
-//   { 5: "wi wi-day-haze" },
-//   { 6: "wi wi-day-cloudy" },
-//   { 7: "wi wi-cloudy" },
-//   { 8: "wi wi-cloudy" },
-//   { 11: "wi wi-fog" },
-//   { 12: "wi wi-showers" },
-//   { 13: "wi wi-day-showers" },
-//   { 14: "wi wi-day-showers" },
-//   { 15: "wi wi-thunderstorm" },
-//   { 16: "wi wi-day-thunderstorm" },
-//   { 17: "wi wi-day-thunderstorm" },
-//   { 18: "wi wi-rain" },
-//   { 19: "wi wi-snow" },
-//   { 20: "wi wi-day-snow" },
-//   { 21: "wi wi-day-snow" },
-//   { 22: "wi wi-snow" },
-//   { 23: "wi wi-day-snow" },
-//   { 24: "wi wi-snowflake-cold" },
-//   { 25: "wi wi-sleet" },
-//   { 26: "wi wi-rain" },
-//   { 29: "wi wi-rain-mix" },
-//   { 30: "wi wi-thermometer" },
-//   { 31: "wi wi-thermometer-exterior" },
-//   { 32: "wi wi-strong-wind" },
-//   { 33: "wi wi-night-clear" },
-//   { 34: "wi wi-night-clear" },
-//   { 35: "wi wi-night-alt-partly-cloudy" },
-//   { 36: "wi wi-night-alt-partly-cloudy" },
-//   { 37: "wi wi-night-fog" },
-//   { 38: "wi wi-night-alt-cloudy" },
-//   { 39: "wi wi-night-alt-showers" },
-//   { 40: "wi wi-night-alt-showers" },
-//   { 41: "wi wi-night-alt-thunderstorm" },
-//   { 42: "wi wi-night-alt-thunderstorm" },
-//   { 43: "wi wi-night-alt-snow" },
-//   { 44: "wi wi-night-alt-snow" }
-// ];
+
+
+
+
 
 export function currentIcon(weatherData) {
-  //console.log('etry');
 
   const weatherIcon = [
     { 1: "wi wi-day-sunny" },
@@ -276,6 +243,12 @@ export function currentIcon(weatherData) {
   const time = `${date.getHours()}:${date.getMinutes()}`;
   const timeToSet = `${date.getHours() - 1}:${date.getMinutes()}`;
 
+
+
+
+
+
+
   return weatherData.map((item, index) => {
     let sunSet = item.Sun.Set;
     let sunRise = item.Sun.Rise;
@@ -300,6 +273,10 @@ export function currentIcon(weatherData) {
   });
 }
 
+
+
+
+
 export function cordsUrl() {
   return `http://api.openweathermap.org/data/2.5/forecast?lat=${localStorage.getItem(
     "latitude"
@@ -309,6 +286,15 @@ export function cordsUrl() {
 export function cityUrl(city) {
   return `http://api.openweathermap.org/data/2.5/forecast?q=${city}&mode=json&units=metric&APPID=6d99186162ab69f549aae9f7f584c075`;
 }
+
+
+
+
+
+
+
+
+
 
 export function hoursCounter(time1, time2) {
   const timeSplit = time1.split(":");
@@ -331,6 +317,11 @@ export function hoursCounter(time1, time2) {
 
   return computedHours;
 }
+
+
+
+
+
 
 
 export function dateConverter(date){

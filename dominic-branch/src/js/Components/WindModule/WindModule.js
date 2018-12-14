@@ -1,28 +1,31 @@
 import React from "react";
 export default function windModule(props){
-    console.log(props);
+    
+  console.log('wind', props);
   return (
     <div className="wind-module anim-show mod-2" >
     <div className="wind-details-container">
       <ul className="wind-stats">
         <li>Winds from the</li>
-        <li>{props.wind.Direction} {props.wind.Speed}</li>
-        <li>Guts: {props.wind.WindGust}</li>
+        <li>{props.day[props.time].Wind.Direction} {props.day[props.time].Wind.Speed}</li>
+        <li>Guts: {props.day[props.time].Wind.WindGust}</li>
       </ul>
       <div className="wind-icon">
-        <i className={`wi wi-wind wi-from-${props.wind.Direction}`}></i>
+        <i className={`wi wi-wind wi-from-${String(props.day[props.time].Wind.Direction).toLocaleLowerCase()}`}></i>
       </div>
     </div>
     <ul className="weather-stats">
-      <li>Clouds: {props.stats.Clouds}</li>
-      <li>Precipitation: {props.stats.TotalLiquid}</li>
-      <li>Rain: {props.stats.Rain}</li>
-      <li>Snow: {props.stats.Snow}</li>
-      <li>Thunderstorms: {props.stats.ThunderstormProbability}%</li>
-      <li>Hours of Precipitation: {props.stats.HoursOfPrecipitation} hrs</li>
-      <li>Hours of Rain: {props.stats.HoursOfRain} hrs</li>
+      <li>Clouds: {props.day[props.time].Clouds}</li>
+      <li>Precipitation: {props.day[props.time].TotalLiquid}</li>
+      <li>Rain: {props.day[props.time].Rain}</li>
+      <li>Snow: {props.day[props.time].Snow}</li>
+      <li>Thunderstorms: {props.day[props.time].ThunderstormProbability}%</li>
+      <li>Hours of Precipitation: {props.day[props.time].HoursOfPrecipitation} hrs</li>
+      <li>Hours of Rain: {props.day[props.time].HoursOfRain} hrs</li>
       <li></li>
     </ul>
     </div>
   );
 };
+
+

@@ -24,7 +24,7 @@ export default class SearchBar extends Component {
   render() {
     return (
       <div className="SearchBar-container">
-      <form id="search-form" onSubmit={this.onSubmit} autoComplete="off">
+      <form id="search-form" className="search-show" onSubmit={this.onSubmit} autoComplete="off">
       
        <div class="floating-label">      
       <input class="floating-input" type="text"  placeholder="&nbsp;"
@@ -32,7 +32,7 @@ export default class SearchBar extends Component {
           onChange={this.onInputChange}
           value={this.state.city} placeholder=" "/>
       <span class="highlight"></span>
-      <label>Enter a city...</label>
+      <label className="label-show" id="search-label">Enter a city...</label>
       </div>
 
       </form>
