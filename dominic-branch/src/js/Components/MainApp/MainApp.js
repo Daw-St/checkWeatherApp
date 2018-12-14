@@ -92,6 +92,7 @@ const obj = [
       },
       City: "Wrocław",
       Date: "2018-12-11",
+      DateToShow: "Dec 14",
       Day: {
         Icon: 29,
         Clouds: "92%",
@@ -162,6 +163,7 @@ const obj = [
     },
       City: "Wrocław",
       Date: "2018-12-12",
+      DateToShow: "Dec 15",
       Day: {
         Icon: 19,
         Clouds: "92%",
@@ -232,6 +234,7 @@ const obj = [
       },
       City: "Wrocław",
       Date: "2018-12-13",
+      DateToShow: "Dec 16",
       Day: {
         Icon: 7,
         Clouds: "92%",
@@ -302,6 +305,7 @@ const obj = [
       },
       City: "Wrocław",
       Date: "2018-12-14",
+      DateToShow: "Dec 17",
       Day: {
         Icon: 7,
         Clouds: "92%",
@@ -372,6 +376,7 @@ const obj = [
       },
       City: "Wrocław",
       Date: "2018-12-15",
+      DateToShow: "Dec 18",
       Day: {
         Icon: 6,
         Clouds: "92%",

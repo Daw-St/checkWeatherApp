@@ -28,10 +28,10 @@ export default function detailsModule(props){
             <div className="day-item day-details-temp">
 
             <div className="temp">
-            <h3>{props.time.toggleTime}</h3>
+            <h3 className="tlt"></h3>
               <span className="large-temp">
                 {props.day.TempMax}
-                <span className="setting">Hi</span>
+                <span className="setting">{props.time === 'Day'? 'HI' : 'LO'}</span>
               </span>
               <span className="real-feel">RealFeel® {props.time ==='Day'? props.day.RealFeelTemperature.Max : props.day.RealFeelTemperature.Min}</span>
               <span className="precip">Precipitation {props.stats.PrecipitationProbability}%</span>
@@ -44,7 +44,7 @@ export default function detailsModule(props){
           <div className="day-details-cond">
             <div>{props.stats.LongPhrase}</div>
             <div className="air-stats">Air Quality: {props.day.AirQuality.Category} ({props.day.AirQuality.Type})</div>
-            <div className="city-stats">{props.day.City}/ {props.day.Date}</div>
+            <div className="city-date-stats">{props.day.City} <span className="date-stats">{props.day.DateToShow}</span></div>
           </div>
           </div>
 

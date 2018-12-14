@@ -1,0 +1,84 @@
+
+.rise-module {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    height: 370px;
+    width: 10%;
+    //width: calc((1/4)*100%);
+    width: 333px;
+  }
+  
+  
+  .sun-module {
+    display: flex;
+    //margin-left: 5px;
+    margin-bottom: 5px;
+    height: 50%;
+    //background-color: white;
+    background-color: #19232d;
+    background-color: #283441;
+    padding: 15px;
+    border: 1px solid green;
+    border: #283441 solid 1px;
+    border-radius: 5px;
+  }
+  
+  
+  .moon-module {
+    display: flex;
+    //margin-left: 5px;
+    
+    height: 50%;
+    padding: 15px;
+    //background-color: white;
+    background-color: #19232d;
+    background-color: #283441;
+     border: #283441 solid 1px;
+    border-radius: 5px
+  }
+  
+  .rise-icon {
+    font-size: 75px;
+    //color: black;
+    position: relative;
+    left: 40px;
+    top: 10px;
+  }
+  
+  .sun-module>i {
+    left: 60px;
+  }
+
+  .sun-module .rise-icon{
+      color: #FFAC33;
+  }
+  
+  .moon-module>i {
+    font-size: 90px;
+  }
+  
+  .moon-module .rise-icon{
+    color: #FFE5B5;
+}
+  ul.time-period {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .time-period li {
+    //color: #999;
+    color: #c8c8c8;
+    padding-top: 5px;
+    white-space: nowrap;
+    font-size: 16px
+  }
+  .time-period li:nth-child(3){
+    margin-top: 20px;
+  }
+  .rise-stats{
+      color: white;
+  }
+  

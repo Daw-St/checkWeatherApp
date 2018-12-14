@@ -11,13 +11,13 @@ export default function riseModule(props){
         </div>
         <ul className="time-period">
           <li>
-            Sunrise: <span>{props.day.Sun.Rise}</span>
+            Sunrise: <span className='rise-stats'>{props.day.Sun.Rise}</span>
           </li>
           <li>
-            Sunset: <span>{props.day.Sun.Set}</span>
+            Sunset: <span className='rise-stats'>{props.day.Sun.Set}</span>
           </li>
           <li>
-            Duration: <span>{props.day.Sun.Duration} hr</span>
+            Duration: <span className='rise-stats'>{props.day.Sun.Duration} hr</span>
           </li>
         </ul>
       </div>
@@ -31,13 +31,13 @@ export default function riseModule(props){
         </div>
         <ul className="time-period">
           <li>
-            Moonrise: <span>{props.day.Moon.Rise}</span>
+            Moonrise: <span className='rise-stats'>{props.day.Moon.Rise}</span>
           </li>
           <li>
-            Moonset: <span>{props.day.Moon.Set}</span>
+            Moonset: <span className='rise-stats'>{props.day.Moon.Set}</span>
           </li>
           <li>
-            Duration: <span>{props.day.Moon.Duration} hr</span>
+            Duration: <span className='rise-stats'>{props.day.Moon.Duration} hr</span>
           </li>
         </ul>
       </div>

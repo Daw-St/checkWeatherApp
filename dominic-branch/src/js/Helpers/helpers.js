@@ -84,6 +84,7 @@ export function formatWeatherData(res, city) {
         Type: data.AirAndPollen[0].Type
       },
       Date: data.Date.slice(0, 10),
+      DateToShow: dateConverter(data.Date.slice(0, 10)),
       TempMax: `${Math.round(data.Temperature.Maximum.Value)}°C`,
       TempMin: `${Math.round(data.Temperature.Minimum.Value)}°C`,
       RealFeelTemperature: {
