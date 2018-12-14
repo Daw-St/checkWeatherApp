@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import CardElement from "../CardElement/CardElement";
 import { currentDays, currentIcon } from "../../Helpers/helpers";
 
+import DetailsModule from '../DetailsModule/DetailsModule';
+import WindModule from '../WindModule/WindModule';
+import RiseModule from '../RiseModule/RiseModule';
+
+
 export default class WeatherDetails extends Component {
   constructor(props) {
     super(props);
@@ -31,9 +36,11 @@ export default class WeatherDetails extends Component {
     this.eventInput.addEventListener('click', this.onChecked);
     console.log('event',this.eventInput);
     this.setState({ statsToShow: this.props.card.Day, wind : this.props.card.Day.Wind})
-   
-
   }
+
+  // componentWillUnmount(){
+  //   document.removeEventListener('click', this.onChecked)
+  // }
 
   onChecked = e=>{
     if(e.currentTarget.checked)
@@ -55,7 +62,12 @@ export default class WeatherDetails extends Component {
   
     return (
       <div className="weather-forecast-details">
-        <div className="details-module anim-show mod-1">
+
+      <DetailsModule time={this.state.toggleTime} day={this.props.card} stats={this.state.statsToShow} />
+      <WindModule stats={this.state.statsToShow} wind={this.state.wind} />
+      <RiseModule day={this.props.card}/>
+
+        {/* <div className="details-module anim-show mod-1">
 
           <div className="toggle-time">
             <div className="toggleWrapper">
@@ -81,7 +93,7 @@ export default class WeatherDetails extends Component {
             <div className="day-item day-details-temp">
 
             <div className="temp">
-            <h3>Day</h3>
+            <h3>{this.state.toggleTime}</h3>
               <span className="large-temp">
                 {this.props.card.TempMax}
                 <span className="setting">Hi</span>
@@ -166,7 +178,7 @@ export default class WeatherDetails extends Component {
             </div>
             <i className="rise-icon wi wi-night-clear" />
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

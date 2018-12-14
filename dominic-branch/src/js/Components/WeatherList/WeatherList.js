@@ -44,7 +44,10 @@ export default class WeatherList extends Component {
       this.events[i] = document.getElementById(`card-${i}`).addEventListener('click', this.onClick)
     }
     const card = document.getElementById(`card-${this.state.chosenCard}`).classList.add('focus-card');
-    
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener('click', this.onClick)
   }
   
 

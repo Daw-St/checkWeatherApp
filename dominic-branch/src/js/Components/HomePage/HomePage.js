@@ -4,7 +4,6 @@ import HomeGetStarted from '../HomeGetStarted/HomeGetStarted'
 import VideoBackground from '../VideoBackground/VideoBackground';
 
 class HomePage extends Component{
-
         render(){
             return(
                 <Fragment>
@@ -14,6 +13,5 @@ class HomePage extends Component{
             )
         }
 }
-
 
 export default HomePage
