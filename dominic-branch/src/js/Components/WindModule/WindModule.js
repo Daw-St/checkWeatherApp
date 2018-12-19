@@ -3,7 +3,9 @@ export default function windModule(props){
     
   console.log('wind', props);
   return (
-    <div className="wind-module anim-show mod-2" >
+    <div className="key key-2">
+    <div className="wind-module anim-show mod mod-2" >
+   
     <div className="wind-details-container">
       <ul className="wind-stats">
         <li>Winds from the</li>
@@ -24,6 +26,7 @@ export default function windModule(props){
       <li>Hours of Rain: {props.day[props.time].HoursOfRain} hrs</li>
       <li></li>
     </ul>
+    </div>
     </div>
   );
 };

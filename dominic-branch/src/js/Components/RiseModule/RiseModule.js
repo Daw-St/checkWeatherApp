@@ -2,8 +2,9 @@ import React from "react";
 export default function riseModule(props){
     console.log(props);
   return (
-    <div className="rise-module anim-show mod-3">
-
+    <div className="key key-3">
+    <div className="rise-module anim-show mod mod-3">
+ 
     <div className="sun-module">
       <div className="sun-details">
         <div className="feature-title">
@@ -42,6 +43,7 @@ export default function riseModule(props){
         </ul>
       </div>
       <i className="rise-icon wi wi-night-clear" />
+    </div>
     </div>
   </div>
   );

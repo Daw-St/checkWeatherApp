@@ -21,11 +21,6 @@
 }
 
 
-
-
-
-
-
 @keyframes details-show{
   0%{
     bottom: -1000px;
@@ -67,9 +62,6 @@
 
 
 
-
-
-
 .anim-flip{
   animation-name: flip;
   animation-duration: 1s;
@@ -102,4 +94,68 @@
       transform: rotateY(0deg);
       filter: blur(0);
   }
+}
+
+.key{
+  position: relative;
+}
+
+.key-1{ 
+  animation-delay:180ms ;
+}
+
+.key-2{
+  animation-delay: 90ms;
+}
+
+.key-3{
+  animation-delay: 0 ;
+}
+
+
+// .blank{
+//   opacity: 0;
+// }
+
+
+
+// @keyframes fadeIn{
+//   0%{
+//     left: -1000px;
+//     opacity: 0;
+//   }
+
+//   100%{
+//     bottom: 0;
+//     opacity: 1;
+//   }
+// }
+
+
+
+@keyframes fadeIn{
+  0%{
+    left: 0;
+  }
+  49%{
+    left: 1700px;
+    opacity: 0;
+    
+  }
+  50%{
+    left: -1700px;
+    opacity: 0
+  }
+
+  100%{
+    left: 0;
+    opacity: 1;
+  }
+}
+.fadeIn{
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }

@@ -16,18 +16,7 @@ export default class WeatherDetails extends Component {
     this.eventInput;
   }
 
-  // renderList =()=>{
-  //     console.log(this.props.data);
-  //     if(this.props.data)
-  //     return this.props.data.map( (item, index) =>{
-  //         return (<ListElement cardNum={index} key={index} wind={item.Wind}
-  //          date={item.date} city={item.city} tempMax={item.tempMax}
-  //           tempMin={item.tempMin}  clouds={item.Clouds}
-  //      rain={item.rain} snow={item.snow} shortPhrase={item.ShortPhrase} snow={item.Snow}
 
-  //      />)
-  //     })
-  // }
 
   componentDidMount(){
     this.eventInput = document.getElementById('dn')
@@ -50,7 +39,7 @@ export default class WeatherDetails extends Component {
   render() {
   
     return (
-      <div className="weather-forecast-details">
+      <div className="weather-forecast-details tab">
 
       <DetailsModule time={this.state.toggleTime} day={this.props.card} />
       <WindModule day={this.props.card} time={this.state.toggleTime} />

@@ -26,12 +26,12 @@ export default class SearchBar extends Component {
       <div className="SearchBar-container">
       <form id="search-form" className="search-show" onSubmit={this.onSubmit} autoComplete="off">
       
-       <div class="floating-label">      
-      <input class="floating-input" type="text"  placeholder="&nbsp;"
+       <div className="floating-label">      
+      <input className="floating-input" type="text"  placeholder="&nbsp;"
           type='text'
           onChange={this.onInputChange}
           value={this.state.city} placeholder=" "/>
-      <span class="highlight"></span>
+      <span className="highlight"></span>
       <label className="label-show" id="search-label">Enter a city...</label>
       </div>
 
@@ -43,17 +43,3 @@ export default class SearchBar extends Component {
 }
 
 
-// <div className="SearchBar-container">
-// <form id="search-form" onSubmit={this.onSubmit} autoComplete="off">
-// <Input
-//     id="Search-Bar"
-//     size="massive"
-//     icon={<Icon  name='search'/>}
-//     placeholder="Enter a city..."
-//     type='text'
-//     onChange={this.onInputChange}
-//     value={this.state.city}
-//   />
-// </form>
-
-// </div>

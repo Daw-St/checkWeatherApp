@@ -2,8 +2,8 @@ import React from "react";
 export default function detailsModule(props){
   console.log(props);
   return (
+    <div className="key key-1">
     <div className="details-module anim-show mod-1">
-
           <div className="toggle-time">
             <div className="toggleWrapper">
               <input type="checkbox" className="dn" id="dn" />
@@ -47,7 +47,7 @@ export default function detailsModule(props){
             <div className="city-date-stats">{props.day.City} <span className="date-stats">{props.day.DateToShow}</span></div>
           </div>
           </div>
-
+      </div>
         </div>
   );
 };
