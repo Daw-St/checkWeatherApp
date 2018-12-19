@@ -43,10 +43,15 @@ export default class WeatherList extends Component {
       this.events[i] = document.getElementById(`card-${i}`).addEventListener('click', this.onClick)
     }
     document.getElementById(`card-${this.state.chosenCard}`).classList.add('focus-card');
+
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(key => key.addEventListener('animationend', this.removeTransition))
+    //document.querySelector('.tab').addEventListener('animationend', this.removeTransition);
   }
 
   componentWillUnmount(){
     document.removeEventListener('click', this.onClick)
+    document.removeEventListener('animationend', this.removeTransition)
   }
   
 
@@ -59,13 +64,25 @@ export default class WeatherList extends Component {
     lastCard.classList.remove('focus-card')
     e.currentTarget.classList.add("focus-card");
 
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(key => key.classList.add('blank', 'fadeIn'));
+   // document.querySelector('.tab').classList.add('fadeIn');
+    //console.log(doc[0]);
+
     this.props.cardId(id);
     this.setState({chosenCard: id})
-
   }
 
+  removeTransition = e =>
+  {
+
+    if(e.animationName !== 'fadeIn' || e.type !=='animationend') return;
+    console.log(e.target.classList.remove('blank', 'fadeIn'));
+  }
+
+
   render() {
-    console.log(this.state.chosenCard);
+    //console.log(this.state.chosenCard);
     return (
       <div className="weather-forecast-list">
         <div className="card-wrapper">{this.renderList()}</div>
@@ -74,349 +91,6 @@ export default class WeatherList extends Component {
   }
 }
 
-const obj = [
-  {
-    AirQuality:{
-      Category: "Good",
-      Type: "Particle Pollution"
-    },
-    RealFeelTemperature:{
-      Max: "3°",
-      Min: "-3°"
-    },
-    City: "Wrocław",
-    Date: "2018-12-11",
-    Day: {
-      Icon: 29,
-      Clouds: "92%",
-      HoursOfPrecipitation: 7.5,
-      HoursOfRain: 3.5,
-      HoursOfSnow: 6,
-      Ice: "0",
-      IconPhrase: "Rain and snow",
-      LongPhrase: "Rain and snow showers, accumulating a coating to 1 cm",
-      PrecipitationProbability: 85,
-      Rain: "3 mm",
-      ShortPhrase: "Rain and snow showers",
-      Snow: "0.5 cm",
-      SnowProbability: 55,
-      ThunderstormProbability: 0,
-      TotalLiquid: "4 mm",
-      Wind: {
-        Direction: "WNW",
-        Speed: "14.8 km/h",
-        WindGust: "31.5 km/h"
-      }
-    },
-
-    Moon: {
-      Rise: "10:48",
-      Set: "19:37"
-    },
-    Night: {
-      Icon: 19,
-      Clouds: "95%",
-      HoursOfPrecipitation: 7,
-      HoursOfRain: 0,
-      HoursOfSnow: 7,
-      Ice: "0",
-      IconPhrase: "Snow",
-      LongPhrase: "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
-      PrecipitationProbability: 72,
-      Rain: "0 mm",
-      ShortPhrase: "Snow at times, 3-6 cm",
-      Snow: "3.7 cm",
-      SnowProbability: 72,
-      ThunderstormProbability: 0,
-      TotalLiquid: "4 mm",
-      Wind: {
-        Direction: "WNW",
-        Speed: "14.8 km/h",
-        WindGust: "31.5 km/h"
-      }
-    },
-    Sun: {
-      Rise: "07:45",
-      Set: "15:45"
-    },
-    TempMax: "3°",
-    TempMin: "-1°"
-  },
-
-  {
-    AirQuality:{
-    Category: "Good",
-    Type: "Particle Pollution"
-  },
-  RealFeelTemperature:{
-    Max: "3°",
-    Min: "-3°"
-  },
-    City: "Wrocław",
-    Date: "2018-12-12",
-    Day: {
-      Icon: 19,
-      Clouds: "92%",
-      HoursOfPrecipitation: 7.5,
-      HoursOfRain: 3.5,
-      HoursOfSnow: 6,
-      Ice: "0",
-      IconPhrase: "Rain and snow",
-      LongPhrase: "Rain and snow showers, accumulating a coating to 1 cm",
-      PrecipitationProbability: 85,
-      Rain: "3 mm",
-      ShortPhrase: "Rain and snow showers",
-      Snow: "0.5 cm",
-      SnowProbability: 55,
-      ThunderstormProbability: 0,
-      TotalLiquid: "4 mm",
-      Wind: {
-        Direction: "WNW",
-        Speed: "14.8 km/h",
-        WindGust: "31.5 km/h"
-      }
-    },
-
-    Moon: {
-      Rise: "10:48",
-      Set: "19:37"
-    },
-    Night: {
-      Icon: 8,
-      Clouds: "95%",
-      HoursOfPrecipitation: 7,
-      HoursOfRain: 0,
-      HoursOfSnow: 7,
-      Ice: "0",
-      IconPhrase: "Snow",
-      LongPhrase: "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
-      PrecipitationProbability: 72,
-      Rain: "0 mm",
-      ShortPhrase: "Snow at times, 3-6 cm",
-      Snow: "3.7 cm",
-      SnowProbability: 72,
-      ThunderstormProbability: 0,
-      TotalLiquid: "4 mm",
-      Wind: {
-        Direction: "WNW",
-        Speed: "14.8 km/h",
-        WindGust: "31.5 km/h"
-      }
-    },
-    Sun: {
-      Rise: "07:45",
-      Set: "15:45"
-    },
-    TempMax: "3°",
-    TempMin: "-1°"
-  },
-
-  {
-    AirQuality:{
-      Category: "Good",
-      Type: "Particle Pollution"
-    },
-    RealFeelTemperature:{
-      Max: "3°",
-      Min: "-3°"
-    },
-    City: "Wrocław",
-    Date: "2018-12-13",
-    Day: {
-      Icon: 7,
-      Clouds: "92%",
-      HoursOfPrecipitation: 7.5,
-      HoursOfRain: 3.5,
-      HoursOfSnow: 6,
-      Ice: "0",
-      IconPhrase: "Rain and snow",
-      LongPhrase: "Rain and snow showers, accumulating a coating to 1 cm",
-      PrecipitationProbability: 85,
-      Rain: "3 mm",
-      ShortPhrase: "Rain and snow showers",
-      Snow: "0.5 cm",
-      SnowProbability: 55,
-      ThunderstormProbability: 0,
-      TotalLiquid: "4 mm",
-      Wind: {
-        Direction: "WNW",
-        Speed: "14.8 km/h",
-        WindGust: "31.5 km/h"
-      }
-    },
-
-    Moon: {
-      Rise: "10:48",
-      Set: "19:37"
-    },
-    Night: {
-      Icon: 8,
-      Clouds: "95%",
-      HoursOfPrecipitation: 7,
-      HoursOfRain: 0,
-      HoursOfSnow: 7,
-      Ice: "0",
-      IconPhrase: "Snow",
-      LongPhrase: "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
-      PrecipitationProbability: 72,
-      Rain: "0 mm",
-      ShortPhrase: "Snow at times, 3-6 cm",
-      Snow: "3.7 cm",
-      SnowProbability: 72,
-      ThunderstormProbability: 0,
-      TotalLiquid: "4 mm",
-      Wind: {
-        Direction: "WNW",
-        Speed: "14.8 km/h",
-        WindGust: "31.5 km/h"
-      }
-    },
-    Sun: {
-      Rise: "07:45",
-      Set: "15:45"
-    },
-    TempMax: "3°",
-    TempMin: "-1°"
-  },
-
-  {
-    AirQuality:{
-      Category: "Good",
-      Type: "Particle Pollution"
-    },
-    RealFeelTemperature:{
-      Max: "3°",
-      Min: "-3°"
-    },
-    City: "Wrocław",
-    Date: "2018-12-14",
-    Day: {
-      Icon: 7,
-      Clouds: "92%",
-      HoursOfPrecipitation: 7.5,
-      HoursOfRain: 3.5,
-      HoursOfSnow: 6,
-      Ice: "0",
-      IconPhrase: "Rain and snow",
-      LongPhrase: "Rain and snow showers, accumulating a coating to 1 cm",
-      PrecipitationProbability: 85,
-      Rain: "3 mm",
-      ShortPhrase: "Rain and snow showers",
-      Snow: "0.5 cm",
-      SnowProbability: 55,
-      ThunderstormProbability: 0,
-      TotalLiquid: "4 mm",
-      Wind: {
-        Direction: "WNW",
-        Speed: "14.8 km/h",
-        WindGust: "31.5 km/h"
-      }
-    },
-
-    Moon: {
-      Rise: "10:48",
-      Set: "19:37"
-    },
-    Night: {
-      Icon: 8,
-      Clouds: "95%",
-      HoursOfPrecipitation: 7,
-      HoursOfRain: 0,
-      HoursOfSnow: 7,
-      Ice: "0",
-      IconPhrase: "Snow",
-      LongPhrase: "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
-      PrecipitationProbability: 72,
-      Rain: "0 mm",
-      ShortPhrase: "Snow at times, 3-6 cm",
-      Snow: "3.7 cm",
-      SnowProbability: 72,
-      ThunderstormProbability: 0,
-      TotalLiquid: "4 mm",
-      Wind: {
-        Direction: "WNW",
-        Speed: "14.8 km/h",
-        WindGust: "31.5 km/h"
-      }
-    },
-    Sun: {
-      Rise: "07:45",
-      Set: "15:45"
-    },
-    TempMax: "3°",
-    TempMin: "-1°"
-  },
-
-  {
-    AirQuality:{
-      Category: "Good",
-      Type: "Particle Pollution"
-    },
-    RealFeelTemperature:{
-      Max: "3°",
-      Min: "-3°"
-    },
-    City: "Wrocław",
-    Date: "2018-12-15",
-    Day: {
-      Icon: 6,
-      Clouds: "92%",
-      HoursOfPrecipitation: 7.5,
-      HoursOfRain: 3.5,
-      HoursOfSnow: 6,
-      Ice: "0",
-      IconPhrase: "Rain and snow",
-      LongPhrase: "Rain and snow showers, accumulating a coating to 1 cm",
-      PrecipitationProbability: 85,
-      Rain: "3 mm",
-      ShortPhrase: "Rain and snow showers",
-      Snow: "0.5 cm",
-      SnowProbability: 55,
-      ThunderstormProbability: 0,
-      TotalLiquid: "4 mm",
-      Wind: {
-        Direction: "WNW",
-        Speed: "14.8 km/h",
-        WindGust: "31.5 km/h"
-      }
-    },
-
-    Moon: {
-      Rise: "10:48",
-      Set: "19:37"
-    },
-    Night: {
-      
-      Icon: 7,
-      Clouds: "95%",
-      HoursOfPrecipitation: 7,
-      HoursOfRain: 0,
-      HoursOfSnow: 7,
-      Ice: "0",
-      IconPhrase: "Snow",
-      LongPhrase:
-        "Snow at times, accumulating an additional 3-6 cm; roads could be slippery",
-      PrecipitationProbability: 72,
-      Rain: "0 mm",
-      ShortPhrase: "Snow at times, 3-6 cm",
-      Snow: "3.7 cm",
-      SnowProbability: 72,
-      ThunderstormProbability: 0,
-      TotalLiquid: "4 mm",
-      Wind: {
-        Direction: "WNW",
-        Speed: "14.8 km/h",
-        WindGust: "31.5 km/h"
-      }
-    },
-    Sun: {
-      Rise: "07:45",
-      Set: "15:45"
-    },
-    TempMax: "3°",
-    TempMin: "-1°"
-  }
-];
 
 
 
