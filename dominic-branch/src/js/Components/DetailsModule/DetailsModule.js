@@ -1,6 +1,5 @@
 import React from "react";
 export default function detailsModule(props){
-  console.log(props);
   return (
     <div className="key key-1">
     <div className="details-module anim-show mod-1">
@@ -22,7 +21,6 @@ export default function detailsModule(props){
               </label>
             </div>
           </div>
-
           <div className="day-details-wrapper">
           <div className="day-elements-wrapper" >
             <div className="day-item day-details-temp">

@@ -1,7 +1,5 @@
 import React from "react";
 export default function windModule(props){
-    
-  console.log('wind', props);
   return (
     <div className="key key-2">
     <div className="wind-module anim-show mod mod-2" >

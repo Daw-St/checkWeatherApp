@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-//hjghjg
+import React from "react";
+
 export default function CardElement(props) {
   return (
     <div className={`card anim-flip anim-flip-card-${props.cardNum}`} id={`card-${props.cardNum}`} data-id={`${props.cardNum}`}  >

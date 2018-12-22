@@ -1,6 +1,5 @@
 import React from "react";
 export default function riseModule(props){
-    console.log(props);
   return (
     <div className="key key-3">
     <div className="rise-module anim-show mod mod-3">

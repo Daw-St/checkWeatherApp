@@ -9,7 +9,7 @@ import MainApp from './Components/MainApp/MainApp';
 
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
           <Route path="/weatherApp" component={MainApp}/>
           <Route path="/" component={HomePage}/>
