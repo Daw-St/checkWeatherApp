@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-
 import HomeGetStarted from '../HomeGetStarted/HomeGetStarted'
 import VideoBackground from '../VideoBackground/VideoBackground';
 

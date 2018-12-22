@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router';
 import axios from 'axios';
-import { cityUrl, cordsUrl, formatData, formatWeatherData,currentIcon } from '../../Helpers/helpers';
+import { formatWeatherData } from '../../Helpers/helpers';
 
 
 import SearchBar from '../SearchBar/SearchBar';
@@ -23,17 +23,8 @@ export default class MainApp extends Component{
         }
     }
     fetchData = () =>{
-        
-        // axios.get(cityUrl(this.state.city)).then(res => {
-        //     const formatedData = formatData(res.data, this.state.city);
-        //    this.setState({ weatherData: formatedData})
-        // });
-           
-        // console.log(cityUrl(this.state.weatherData));
-       
-        //accuweather api 
-        axios.get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=L1PICh0zcth59rE0BFf4GTGXOoAnucGj&q=${this.state.city}`)
-        .then(res => axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${res.data[0].Key}?apikey=L1PICh0zcth59rE0BFf4GTGXOoAnucGj&details=true&metric=true`)
+        axios.get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=L1PICh0zcth59rE0BFf4GTGXOoAnucGj&q=${this.state.city}`)
+        .then(res => axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${res.data[0].Key}?apikey=L1PICh0zcth59rE0BFf4GTGXOoAnucGj&details=true&metric=true`)
         .then(res =>{
            const formatedData = formatWeatherData(res.data.DailyForecasts, this.state.city);
            this.setState({ weatherData: formatedData})
@@ -41,30 +32,10 @@ export default class MainApp extends Component{
     }
     
     componentDidMount(){
-        //  navigator.geolocation.getCurrentPosition(pos =>{
-        //     this.setState({latitude: pos.coords.latitude, longitude: pos.coords.longitude})
-        //     localStorage.setItem('latitude', pos.coords.latitude),
-        //     localStorage.setItem('longitude', pos.coords.longitude) 
-        //  })
-
-        //  if(localStorage.getItem('longitude')){
-        //      axios.get(cordsUrl()).then(res => {
-        //         const formatedData = formatData(res.data);
-        //        this.setState({ weatherData: formatedData})
-        //     });
-        //  }else{
-        //     axios.get(cityUrl(this.state.city)).then(res => {
-        //         const formatedData = formatData(res.data, this.state.city);
-        //        this.setState({ weatherData: formatedData})
-        //     });
-        //  }
-
          this.fetchData();
-        //currentIcon(obj)
     }  
     
         render(){
-          console.log(this.state.cardId);
           if(this.state.weatherData){
             return(
                 <Fragment>

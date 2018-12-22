@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import CardElement from "../CardElement/CardElement";
-import { currentDays, currentIcon } from "../../Helpers/helpers";
-
 import DetailsModule from '../DetailsModule/DetailsModule';
 import WindModule from '../WindModule/WindModule';
 import RiseModule from '../RiseModule/RiseModule';
