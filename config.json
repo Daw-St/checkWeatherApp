@@ -1,0 +1,46 @@
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "6f200a5a449259c51cd0ccf56b4c1e93",
+      "css": "drizzle",
+      "code": 59392,
+      "src": "typicons"
+    },
+    {
+      "uid": "3cac7625657b10cf706e7f332749c912",
+      "css": "cloud-flash",
+      "code": 59393,
+      "src": "typicons"
+    },
+    {
+      "uid": "ac10a3a3077eab1b9d66509eb25fb9b4",
+      "css": "cloud-sun",
+      "code": 59394,
+      "src": "typicons"
+    },
+    {
+      "uid": "e7a4824e79002c2d8ce3047b2da8b5a2",
+      "css": "rain",
+      "code": 59395,
+      "src": "typicons"
+    },
+    {
+      "uid": "b215adc51ca2aa37e7bbe244d1fa52cc",
+      "css": "clouds",
+      "code": 59396,
+      "src": "meteocons"
+    },
+    {
+      "uid": "02bb2eaa1515b8fc954abbaf80212739",
+      "css": "snow-alt",
+      "code": 59397,
+      "src": "meteocons"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+body{
+    background-color:rgb(182, 212, 245);
+    /* margin-top: 5px; */
+    color: rgb(70, 70, 70);
+    min-height: 610px;
+	background: linear-gradient(-45deg, rgb(27, 115, 187), rgb(160, 220, 255), rgb(71, 157, 255), rgb(157, 201, 252));
+	background-size: 400% 400%;
+	animation: Gradient 15s ease infinite;
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.container-fluid{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+#main-con{
+    display: grid;
+    margin-bottom: 10px;
+}
+#con{
+    visibility: hidden;
+}
+
+#info-desc{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+#wind{
+    border: 2px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: rgb(228, 240, 250);
+    padding: 10px; 
+    margin-right: 5px;
+}
+#humidity{
+    border: 2px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: rgb(228, 240, 250);
+    padding: 10px; 
+    margin-right: 5px;
+}
+#pressure{
+    border: 2px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: rgb(228, 240, 250);
+    padding: 10px; 
+    margin-right: 5px;
+}
+#cloudiness{
+    border: 2px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: rgb(228, 240, 250);
+    padding: 10px; 
+    margin-right: 5px;
+}
+#weather{
+    border: 2px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: rgb(228, 240, 250);
+    padding: 10px; 
+    text-align: center;
+}
+#con{
+    display: grid;
+}
+#con #weather-info{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5px;
+    text-align: center;
+}
+#max-min{
+    border: 2px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: rgb(228, 240, 250);
+    padding: 10px; 
+}
+#sunrise-sunset{
+    border: 2px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: rgb(228, 240, 250);
+    padding: 10px; 
+}
+
+#form{
+    border: 2px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    padding: 8px;
+    background-color: rgb(228, 240, 250);
+}
+#in{
+    width: 69%;
+    margin-left: 6%;
+    margin-right: 1%;
+}
+#lab{
+    /* margin-left: 1%; */
+    width: 14.5%;
+    justify-content: start;
+    color: rgb(70, 70, 70);
+}
+#btn{
+    border: 2px solid rgb(190, 190, 190);
+    background-color: rgb(97, 97, 97);
+    color: rgb(190, 190, 190);
+    font-size: 15px;
+    margin: 1px;
+}
+#search-i{
+    margin-left: 0.5%;
+    margin-right: 1%;
+    color: rgb(107, 107, 107);;
+
+}
